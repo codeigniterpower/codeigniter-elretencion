@@ -27,9 +27,10 @@ Todo esto se explica en detalle a continuacion por partes
 
 * git (manejador de repositorio y proyecto) `apt-get install git git-core giggle`
 * geany (editor para manejo php asi como ver el preview) `apt-get install geany geany-plugin-webhelper`
+* geany (editor para manejo php asi como web diseño) `apt-get install codelite codelite-plugins`
 * lighttpd/apache2 (webserver localmente para trabajar el webview) `apt-get install lighttpd`
-* php5 (interprete) en viejos 8- `apt-get install php5-cgi php5-xml phgp5-xsl php5-sqlite php5-gd php5-mcrypt php5-curl`
-* php7 (interprete) en debian 9+ `apt-get install php-cgi php-xml php-xsl php-sqlite php-gd php-mcrypt php-curl`
+* php5 (interprete) en viejos 8- `apt-get install php5-cgi php5-xml phg5-xsl php5-gd php5-json php5-curl`
+* php7 (interprete) en debian 9+ `apt-get install php-cgi php-xml php-xsl php-gd php-json php-curl`
 * curl (invocar urls) `apt-get install curl`
 
 Su usaurio de trabajo debera llamarse `general`, si aun no esta, crearlo ejecutando 
@@ -48,7 +49,6 @@ groupadd docker;groupadd dockers
 mkdir -m 775 -p /home/general/Devel && touch /home/general/Devel/.keep && chmod 554 /home/general/Devel/.keep
 
 passwd general
-
 ```
 
 **NOTA** el ultimo comando pregunta por la clave, mientras escribe no se vera nada.

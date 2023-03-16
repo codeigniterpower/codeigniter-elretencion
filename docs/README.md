@@ -8,21 +8,21 @@ Toma un txt y genera el XML para retenciones, este es la interfaz original:
 
 ![](originalseniatxmlconverter.png)
 
-# Desarrollo
+# Desarrollo (localhost/pc)
 
-Para comenzar a desarrollar aun un manual minimo instructivo en [DESARROLLO.md](../DESARROLLO.md) 
+Para comenzar a desarrollar aun un manual minimo instructivo en [DESARROLLO.md](DESARROLLO.md) 
 donde se detallan las herramientas y el entorno para trabajar.
 
 Se usa una base codeigniter lo que facilita la comprension MVC, que separa 
 un directorio para cada vista y/o controlador.
 
-# Instalacion
+# Instalacion (produccion)
 
 Se asume que ud usa el usuario `general` estandarizado VenenuX.
 
 Instalar el sofware necesario
 
-`apt-get install git lighttpd mysql-server php5-cgi php5-gd php5-mysql php5-mcryp php5-curl php5-odbc tdsodbc `
+`apt-get install git lighttpd mysql-server php-cgi php-gd php-xsl php-xml php-json`
 
 Crear directorio home
 
