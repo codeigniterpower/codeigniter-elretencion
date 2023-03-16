@@ -1,0 +1,3 @@
+[submodule "vendor/codeigniter2"]
+	path = vendor/codeigniter2
+	url = https://gitlab.com/codeigniterpower/codeigniterpower
