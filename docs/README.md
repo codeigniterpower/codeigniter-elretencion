@@ -4,7 +4,9 @@ Interfaz web que genera el XML subido a SENIAT de ISLR por retenciones
 
 ## Introduccion
 
-Toma un txt y genera el XML para retenciones
+Toma un txt y genera el XML para retenciones, este es la interfaz original:
+
+![](originalseniatxmlconverter.png)
 
 # Desarrollo
 

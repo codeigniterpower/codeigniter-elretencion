@@ -11,6 +11,8 @@ definida por acceso, estado y aplicacion que accece.
 | ------------------------ | ----------------------- | ----------- | ------------- | 
 | XML retenciones ISLR     | xmls/retencionesxml     | INICIADO 2% | [docs/xmls-retencionesxml.md](docs/xmls-retencionesxml.md) | 
 
+![](docs/originalseniatxmlconverter.png)
+
 ## Como comenzar:
 
 Para comenzar a trabajar en el desarrollo leer el archivo [docs/DESARROLLO.md](docs/DESARROLLO.md)
