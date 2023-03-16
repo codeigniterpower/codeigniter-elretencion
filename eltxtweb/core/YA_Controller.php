@@ -41,7 +41,6 @@ class YA_Controller extends CI_Controller
 		$this->load->library('table');
 		$this->load->library('encrypt');
 		$this->load->library('session');
-		$this->load->library('login');
 
         $this->currentctr = $this->router->fetch_class();
         $this->currentinx = $this->router->fetch_method();

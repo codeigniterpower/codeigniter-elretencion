@@ -16,7 +16,6 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 	echo '<body>'.PHP_EOL;
 echo '<!-- START MAIN CONTAINER AND MENU TAG CNTAINER , it ends in the footer view -->';
 echo '<div class="container-fluid">'.PHP_EOL;
-echo '<div class="row flex-nowrap">'.PHP_EOL;
 	?>
 		<div id="menu" style="height: 60px; margin: 0 0 0 0">
 			<center>

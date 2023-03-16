@@ -8,7 +8,7 @@
  * @copyright Copyright (c) 2018, 2019
  * @version ab - 1.0
  */
-class Index extends CP_Controller {
+class Index extends YA_Controller {
 
 	/**
 	 * name: desconocido
