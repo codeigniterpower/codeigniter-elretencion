@@ -15,7 +15,7 @@
 			  </div>
 			  <div class="card-footer">
 				<small class="text-muted">
-					<a class="btn btn-default btn-outline-success" href="<?php echo site_url();?>/xmls/Indexxmls"><i class="icon icon-screen-desktop"></i>GenerarXML!</a>
+					<a class="btn btn-default btn-outline-success" href="<?php echo site_url();?>/xmls/"><i class="icon icon-screen-desktop"></i>GenerarXML!</a>
 				</small>
 			  </div>
 			</div>
@@ -27,7 +27,7 @@
 			  </div>
 			  <div class="card-footer">
 				<small class="text-muted">
-					<a class="btn btn-default btn-outline-success" href="<?php echo site_url();?>/txts/Indextxts"><i class="icon icon-screen-desktop"></i>GenerarTXT!</a>
+					<a class="btn btn-default btn-outline-success" href="<?php echo site_url();?>/txts/"><i class="icon icon-screen-desktop"></i>GenerarTXT!</a>
 				</small>
 			  </div>
 			</div>

@@ -7,7 +7,7 @@
  * @copyright Copyright (c) 2023 Angel Gonzalez Instagram:Angel_gonzalez_dev , Gitlab 1:@Radioactive99
  * @version ab - 1.0
  */
-class Xmlsretencionesxml extends YA_Controller {
+class Retencionesxml extends YA_Controller {
 
 	/**
 	 * name: desconocido
@@ -17,8 +17,8 @@ class Xmlsretencionesxml extends YA_Controller {
 	function __construct()
 	{
 		parent::__construct();
-	$this->load->helper(array('form', 'url','html'));
-	$this->output->enable_profiler(ENVIRONMENT !== 'production');
+		$this->load->helper(array('form', 'url','html'));
+		$this->output->enable_profiler(ENVIRONMENT !== 'production');
 
 	}
 
@@ -35,22 +35,22 @@ class Xmlsretencionesxml extends YA_Controller {
 		$data['currentctr'] = $this->currentctr;
 		$data['currentinx'] = $this->currentinx;
 		$data['currenturl'] = $this->currenturl;
+		$data['menu'] = $this->genmenu();
+		$data['menu'] = $this->genmenu('xmls');
 		$this->load->view('header',$data);
-		$this->load->view('indexview',$data);
+		$this->load->view('xmls_convert1form',$data);
 		$this->load->view('footer',$data);
 	}
 
 	public function Converttxttoxml()
 	{
-
+/*
 		$this->load->library('upload');
 
 		$config['upload_path'] = './assets/uploads/';
-		$config['allowed_types'] = 'gif|jpg|png';
-		$config['max_size'] = '100';
-		$config['max_width'] = '1024';
-		$config['max_height'] = '768';
-
+		$config['allowed_types'] = 'ods|csv|txt';
+		$config['max_size'] = '3000';
+*/
 	}
 
 

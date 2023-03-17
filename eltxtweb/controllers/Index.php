@@ -36,6 +36,7 @@ class Index extends YA_Controller {
 		$data['currentctr'] = $this->currentctr;
 		$data['currentinx'] = $this->currentinx;
 		$data['currenturl'] = $this->currenturl;
+		$data['menusub'] = $this->genmenu();
 		$this->load->view('header',$data);
 		$this->load->view('indexview',$data);
 		$this->load->view('footer',$data);
