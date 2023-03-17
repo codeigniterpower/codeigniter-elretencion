@@ -30,7 +30,7 @@ Crear directorio home
 
 Descargar el repositorio git
 
-`git clone https://gitlab.com/codeigniterpower/codeigniter-xmlislr`
+`git clone https://gitlab.com/codeigniterpower/codeigniter-eltxt`
 
 Iniciar el repositorio con las dependencias
 

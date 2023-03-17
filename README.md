@@ -10,8 +10,7 @@ definida por acceso, estado y aplicacion que accece.
 | txt tipo                 | nuevo modulo migrado    | estado      | documentacion |
 | ------------------------ | ----------------------- | ----------- | ------------- | 
 | XML retenciones ISLR     | xmls/retencionesxml     | INICIADO 2% | [docs/xmls-retencionesxml.md](docs/xmls-retencionesxml.md) | 
-
-![](docs/originalseniatxmlconverter.png)
+| txt generacion pagos     | txts/generarbanescopago | INICIADO 0% | [docs/txts-pagosnominas.md](docs/txts-pagosnominas.md) | 
 
 ## Como comenzar:
 

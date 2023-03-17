@@ -92,7 +92,7 @@ como usuario `general` clonar las fuentes en Devel de home:
 ``` 
 mkdir -p ~/Devel
 cd Devel
-git clone --recursive https://gitlab.com/codeigniterpower/codeigniter-xmlislr
+git clone --recursive https://gitlab.com/codeigniterpower/codeigniter-eltxt
 cd elyanero
 git pull
 git submodule init

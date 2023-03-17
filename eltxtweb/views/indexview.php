@@ -51,7 +51,7 @@
 			  </div>
 			  <div class="card-footer">
 				<small class="text-muted">
-					<a class="btn btn-default btn-outline-success" href="https://gitlab.com/codeigniterpower/codeigniter-codeigniter-xmlislr/tree/main/docs"><i class="icon icon-screen-desktop"></i>Sources!</a>
+					<a class="btn btn-default btn-outline-success" href="https://gitlab.com/codeigniterpower/codeigniter-codeigniter-eltxt/tree/main/docs"><i class="icon icon-screen-desktop"></i>Sources!</a>
 				</small>
 			  </div>
 			</div>
