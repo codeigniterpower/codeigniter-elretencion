@@ -12,3 +12,7 @@
 *.bak
 
 elayayies/*
+
+eltxtfiles/*create/*.csv
+!eltxtfiles/*create/example.csv
+!eltxtfiles/*create/example.txt

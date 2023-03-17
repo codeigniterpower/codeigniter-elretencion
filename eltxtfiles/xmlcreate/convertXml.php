@@ -76,4 +76,4 @@ function convertCsvToXmlString($csv_string) {                                   
     $dom->save($xml_file_name);                                                                 //|
 	echo "$xml_file_name has been successfully created";                                        //|
 }                                                                                               //|
-convertCsvToXmlString("/home/general/Devel/ficheros/example.csv");                              //|
+convertCsvToXmlString("/home/general/Devel/codeigniter-eltxt/eltxtfiles/xmlcreate/example.csv");                              //|
