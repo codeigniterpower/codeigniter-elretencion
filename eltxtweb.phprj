@@ -6,10 +6,10 @@
  "settings": {
   "m_runAs": 1,
   "m_phpExe": "/usr/bin/php",
-  "m_indexFile": "/home/general/Devel/codeigniter-xmlislr/eltxtweb/controllers/Index.php",
+  "m_indexFile": "/home/general/Devel/codeigniter-eltxt/eltxtweb/controllers/Index.php",
   "m_args": "",
-  "m_workingDirectory": "/home/general/Devel/codeigniter-xmlislr/",
-  "m_projectURL": "http://localhost/~general/codeigniter-xmlislr/eltxtweb.php",
+  "m_workingDirectory": "/home/general/Devel/codeigniter-eltxt/",
+  "m_projectURL": "http://localhost/~general/codeigniter-eltxt/eltxtweb.php",
   "m_includePath": "",
   "m_ccIncludePath": "",
   "m_flags": 5,

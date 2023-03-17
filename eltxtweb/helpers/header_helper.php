@@ -80,7 +80,7 @@ if (! function_exists('link_css')) {
 			if ( strripos($link, 'http') !== FALSE)
 				$linkssrc['src'] = $link;
 			else
-				$linkssrc['src'] = base_url().'assets/eltxtcss/'.$link;
+				$linkssrc['src'] = base_url().'eltxtfiles/css/'.$link;
 		}
 
 		$script = '';
@@ -118,7 +118,7 @@ if (! function_exists('link_scss')) {
 			if ( strripos($link, 'http') !== FALSE)
 				$linkssrc['src'] = $link;
 			else
-				$linkssrc['src'] = base_url().'assets/eltxtcss/'.$link;
+				$linkssrc['src'] = base_url().'eltxtfiles/css/'.$link;
 		}
 
 		$script = '';
@@ -150,12 +150,12 @@ if (! function_exists('link_js')) {
 		if ( strcmp(ENVIRONMENT, 'development') == 0 )
 			$nocache = '?'.time();
 		$linkssrc = array();
-		//<script src="/assets/webpack/runtime.a33f0906.bundle.js" defer="defer" nonce=""></script>
+		//<script src="/eltxtfiles/webpack/runtime.a33f0906.bundle.js" defer="defer" nonce=""></script>
 		if ( ! is_array($link)) {
 			if ( strripos($link, 'http') !== FALSE)
 				$linkssrc['src'] = $link;
 			else
-				$linkssrc['src'] = base_url().'assets/eltxtjs/'.$link;
+				$linkssrc['src'] = base_url().'eltxtfiles/js/'.$link;
 		}
 
 		$script = '';
@@ -203,12 +203,12 @@ if (! function_exists('link_scrip')) {
 		if ( strcmp(ENVIRONMENT, 'development') == 0 )
 			$nocache = '?'.time();
 		$linkssrc = array();
-		//<script src="/assets/webpack/runtime.a33f0906.bundle.js" defer="defer" nonce=""></script>
+		//<script src="/eltxtfiles/webpack/runtime.a33f0906.bundle.js" defer="defer" nonce=""></script>
 		if ( ! is_array($link)) {
 			if ( strripos($link, 'http') !== FALSE)
 				$linkssrc['src'] = $link;
 			else
-				$linkssrc['src'] = base_url().'assets/eltxtjs/'.$link;
+				$linkssrc['src'] = base_url().'eltxtfiles/js/'.$link;
 		}
 
 		$script = '';

@@ -14,8 +14,8 @@ indent_mode=2
 
 [project]
 name=eltxtweb.geany
-base_path=/home/general/Devel/codeigniter-xmlislr/
-description=codeigniter-xmlislr
+base_path=/home/general/Devel/codeigniter-eltxt/
+description=codeigniter-eltxt
 file_patterns=
 
 [long line marker]
@@ -23,7 +23,7 @@ long_line_behaviour=1
 long_line_column=72
 
 [VTE]
-last_dir=/home/general/Devel/codeigniter-xmlislr/eltxt
+last_dir=/home/general/Devel/codeigniter-eltxt/eltxtweb
 
 [files]
 
