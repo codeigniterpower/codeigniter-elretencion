@@ -75,31 +75,38 @@ class Convertxml.php
 		$dom->encoding = 'utf-8';
 		$dom->xmlVersion = '1.0';
 		$dom->formatOutput = true;
+		$generateroot = FALSE;
 
-		$root = $dom->createElement('RelacionRetencionesISLR');
-		$rifAgente = new DOMAttr('RifAgente', '5467');
-		$root->setAttributeNode($rifAgente);
-		$periodo = new DOMAttr('Periodo', '54');
-		$root->setAttributeNode($periodo);
 
 		while(!feof($lines))
 		{
 			$line = fgets($lines);
 			$content = explode('#',$line);
+
+			if($generateroot == FALSE)
+			{
+				$root = $dom->createElement('RelacionRetencionesISLR');
+				$rifAgente = new DOMAttr('RifAgente', $content[0]);
+				$root->setAttributeNode($rifAgente);
+				$periodo = new DOMAttr('Periodo', $content[1]);
+				$root->setAttributeNode($periodo);
+				$generateroot = TRUE;
+			}
+
 			$detalleRetencion = $dom->createElement('DetalleRetencion');
-			$rifRetenido = $dom->createElement('RifRetenido',$content[0]);
+			$rifRetenido = $dom->createElement('RifRetenido',$content[6]);
 			$detalleRetencion->appendChild($rifRetenido);
-			$numeroFactura = $dom->createElement('NumeroFactura', $content[1]);
+			$numeroFactura = $dom->createElement('NumeroFactura', $content[7]);
 			$detalleRetencion->appendChild($numeroFactura);
-			$numeroControl = $dom->createElement('NumeroControl', $content[2]);
+			$numeroControl = $dom->createElement('NumeroControl', $content[8]);
 			$detalleRetencion->appendChild($numeroControl);
 			$fechaOperacion = $dom->createElement('FechaOperacion',$content[3]);
 			$detalleRetencion->appendChild($fechaOperacion);
 			$codigoConcepto = $dom->createElement('CodigoConcepto', $content[4]);
 			$detalleRetencion->appendChild($codigoConcepto);
-			$montoOperacion = $dom->createElement('MontoOperacion', $content[5]);
+			$montoOperacion = $dom->createElement('MontoOperacion', $content[9]);
 			$detalleRetencion->appendChild($montoOperacion);
-			$porcentajeRetencion = $dom->createElement('PorcentajeRetencion', $content[6]);
+			$porcentajeRetencion = $dom->createElement('PorcentajeRetencion', $content[15]);
 			$detalleRetencion->appendChild($porcentajeRetencion);
 			$root->appendChild($detalleRetencion);
 			$dom->appendChild($root);
