@@ -54,8 +54,9 @@ function convertCsvToTxt($csv_string) {                                         
             $valorcol1 .= completar_codigo($content[4], 14, '<br>');
             $valorcol1 .= completar_codigo($content[5], 17, '<br>');
             $valorcol1 .= completar_codigo($content[6], 70, '<br>');
-            fwrite($txt,"\n");
-            fwrite($txt,$valorcol1);
+            //rite($txt,"\n");
+            //rite($txt,$valorcol1);
+echo $valorcol1;
             // fwrite($txt,$content[2]."\n");
 
             // fwrite($txt,$content[3]."\n");
@@ -82,7 +83,7 @@ function convertCsvToTxt($csv_string) {                                         
 function completar_codigo($incodigo ='', $digitos = 10, $caracter = ' ')
 {
     if($digitos>10)
-        $digitos=10;
+    //    $digitos=10; // dios snto.. como no pudieron ver eso.. ¿? 
     $excodigo=$incodigo;
     $tam=strlen($incodigo);
     if(strlen($incodigo)<$digitos)
@@ -95,4 +96,4 @@ function completar_codigo($incodigo ='', $digitos = 10, $caracter = ' ')
         $excodigo=substr($incodigo,-1,$digitos);
     return $excodigo;
 }//|
-convertCsvToTxt("/home/general/Devel/codeigniter-xmlislr/eltxtfiles/txtcreate/DataEntryenBsS1.csv");                              //|
+convertCsvToTxt("/home/general/Devel/codeigniter-eltxt/eltxtfiles/txtcreate/DataEntryenBsS1.csv");                              //|
