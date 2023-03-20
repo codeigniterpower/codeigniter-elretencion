@@ -42,35 +42,36 @@ function convertCsvToTxt($csv_string) {                                         
     echo var_dump($lines);                                                                      //|
     $cont = 0;               
     $txt = fopen("txtCreated.txt", "w+");
-
+    $contLines = 1;
 // ------------------------------------///////////////////////------------------------------------
     while(!feof($lines)){                                                                       //|
         $line = fgets($lines);                                                                  //|
         $content = explode('#',$line); 
         $valorcol1 = '';
-        if($cont>7){
+        if($cont>6){
+            if ($cont >7){
+                $id =  str_pad($contLines, 8, 0, STR_PAD_LEFT);
+                $type    = str_pad(3, 2, 0, STR_PAD_LEFT);
+                $idTotal = str_pad($type,  10,$id); 
+                $valorcol1 .= completar_codigo($idTotal,32,' ');
+            }
+            if($cont == 7)
+                $valorcol1 .= completar_codigo($content[1], 32, ' ');
+
             $valorcol1 .= completar_codigo($content[2], 33, ' ');
             $valorcol1 .= completar_codigo($content[3], 48, ' ');
             $valorcol1 .= completar_codigo($content[4], 14, ' ');
             $valorcol1 .= completar_codigo($content[5], 17, ' ');
             $valorcol1 .= completar_codigo($content[6], 70, ' ');
-// continuar hasa acabar la linea original
             fwrite($txt,"\n");
             fwrite($txt,$valorcol1);
-            // fwrite($txt,$content[2]."\n");
-
-            // fwrite($txt,$content[3]."\n");
-            // fwrite($txt,$content[4]."\n");
-            // fwrite($txt,$content[5]."\n");
-            // fwrite($txt,$content[6]."\n");
-            // fwrite($txt,$content[7]."\n");
-            // fwrite($txt,$content[8]."\n");
+            $contLines+=1; 
         }
 
         $cont+=1;
     }            
     fclose($txt);
-    echo $cont;                                                                               //|
+    // echo $cont;                                                                               //|
 // ------------------------------------///////////////////////------------------------------------
 }        
 
@@ -86,7 +87,7 @@ function completar_codigo($incodigo ='', $digitos = 10, $caracter = ' ')
     $tam=strlen($incodigo);
     if(strlen($incodigo)<$digitos)
     {
-        $fin= $digitos -$tam ;
+        $fin = $digitos - $tam ;
         for ($i= 1; $i<= $fin; $i++ )
             $excodigo= $caracter.$excodigo;
     }
@@ -94,4 +95,4 @@ function completar_codigo($incodigo ='', $digitos = 10, $caracter = ' ')
         $excodigo=substr($incodigo,-1,$digitos);
     return $excodigo;
 }//|
-convertCsvToTxt("/home/general/Devel/codeigniter-eltxt/eltxtfiles/txtcreate/DataEntryenBsS1.csv");                              //|
+convertCsvToTxt("/home/general/Devel/codeigniter-xmlislr/eltxtfiles/txtcreate/DataEntryenBsS1.csv");                              //|
