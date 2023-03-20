@@ -61,7 +61,7 @@ function convertCsvToTxt($csv_string) {                                         
             $valorcol1 .= completar_codigo($content[2], 33, ' ');
             $valorcol1 .= completar_codigo($content[3], 48, ' ');
             $valorcol1 .= completar_codigo($content[4], 14, ' ');
-            $valorcol1 .= completar_codigo($content[5], 17, ' ');
+            $valorcol1 .= completar_codigo($content[5], 49, ' ');
             $valorcol1 .= completar_codigo($content[6], 70, ' ');
             fwrite($txt,"\n");
             fwrite($txt,$valorcol1);
