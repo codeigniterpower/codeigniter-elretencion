@@ -49,14 +49,14 @@ function convertCsvToTxt($csv_string) {                                         
         $content = explode('#',$line); 
         $valorcol1 = '';
         if($cont>7){
-            $valorcol1 .= completar_codigo($content[2], 33, '<br>');
-            $valorcol1 .= completar_codigo($content[3], 48, '<br>');
-            $valorcol1 .= completar_codigo($content[4], 14, '<br>');
-            $valorcol1 .= completar_codigo($content[5], 17, '<br>');
-            $valorcol1 .= completar_codigo($content[6], 70, '<br>');
-            //rite($txt,"\n");
-            //rite($txt,$valorcol1);
-echo $valorcol1;
+            $valorcol1 .= completar_codigo($content[2], 33, ' ');
+            $valorcol1 .= completar_codigo($content[3], 48, ' ');
+            $valorcol1 .= completar_codigo($content[4], 14, ' ');
+            $valorcol1 .= completar_codigo($content[5], 17, ' ');
+            $valorcol1 .= completar_codigo($content[6], 70, ' ');
+// continuar hasa acabar la linea original
+            fwrite($txt,"\n");
+            fwrite($txt,$valorcol1);
             // fwrite($txt,$content[2]."\n");
 
             // fwrite($txt,$content[3]."\n");
@@ -82,8 +82,6 @@ echo $valorcol1;
 */
 function completar_codigo($incodigo ='', $digitos = 10, $caracter = ' ')
 {
-    if($digitos>10)
-    //    $digitos=10; // dios snto.. como no pudieron ver eso.. ¿? 
     $excodigo=$incodigo;
     $tam=strlen($incodigo);
     if(strlen($incodigo)<$digitos)
