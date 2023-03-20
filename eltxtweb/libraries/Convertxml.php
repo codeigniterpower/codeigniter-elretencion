@@ -1,19 +1,7 @@
 <?php
-/*
- * convertXml.php
- * 
+/**
  * Copyright 2023 Angel Gonzalez Instagram:Angel_gonzalez_dev , Gitlab 1:@Radioactive99
  * Copyright 2023 PICCORO Lenz McKAY mckaygerhard
- * 
-    ------------------------------------///////////////////////------------------------------------
-    /                                                                                           //|
-        *Author: Angel Gonzalez                                                                 //|
-        *Alias Name: Radioactive99                                                              //|
-        *Gitlab 1:@Radioactive99                                                                //|
-        *Contact Instagram:Angel_gonzalez_dev                                                   //|
-        *                                                                                       //|
-    /                                                                                           //|
-    ------------------------------------///////////////////////------------------------------------
  * 
  * Usted es libre de:
  * - Compartir — copiar y redistribuir el material en cualquier medio o formato
@@ -43,51 +31,88 @@ defined('BASEPATH') || exit('No direct script access allowed');
 class Convertxml.php
 {
 
+	public function __construct($params)
+	{
+		// Do something with $params
+	}
+
 	/**
-	 * 
 	 * name: convertCsvToXmlString
 	 * @param string ruta al archivo conv ertir
-	 * @return N/A : escribe archivo xml
+	 * @return N/A : escribe archivo xml misma ruta
 	 * 
 	 */
-	function convertCsvToXmlString($csv_string) {                                                   //|
-		$lines =  fopen($csv_string, 'rt');                                                         //|
-		echo var_dump($lines);                                                                      //|
-		$dom = new DOMDocument();                                                                   //|
-		$dom->encoding = 'utf-8';                                                                   //|
-		$dom->xmlVersion = '1.0';                                                                   //|
-		$dom->formatOutput = true;                                                                  //|
-		$xml_file_name = 'RelacionRetencionesISLR'.$csv_string.'.xml';                                                        //|
-		$root = $dom->createElement('RelacionRetencionesISLR');                                     //|
-		$rifAgente = new DOMAttr('RifAgente', '5467');                                              //|
-		$root->setAttributeNode($rifAgente);                                                        //|
-		$periodo = new DOMAttr('Periodo', '54');                                                    //|
-		$root->setAttributeNode($periodo);                                                          //|
-	// ------------------------------------///////////////////////------------------------------------
-		while(!feof($lines)){                                                                       //|
-			$line = fgets($lines);                                                                  //|
-			$content = explode('#',$line);                                                          //|
-			$detalleRetencion = $dom->createElement('DetalleRetencion');                            //|
-			$rifRetenido = $dom->createElement('RifRetenido',$content[0]);                          //|
-			$detalleRetencion->appendChild($rifRetenido);                                           //|
-			$numeroFactura = $dom->createElement('NumeroFactura', $content[1]);                     //|
-			$detalleRetencion->appendChild($numeroFactura);                                         //|
-			$numeroControl = $dom->createElement('NumeroControl', $content[2]);                     //|
-			$detalleRetencion->appendChild($numeroControl);                                         //|
-			$fechaOperacion = $dom->createElement('FechaOperacion',$content[3]);                    //|
-			$detalleRetencion->appendChild($fechaOperacion);                                        //|
-			$codigoConcepto = $dom->createElement('CodigoConcepto', $content[4]);                   //|
-			$detalleRetencion->appendChild($codigoConcepto);                                        //|
-			$montoOperacion = $dom->createElement('MontoOperacion', $content[5]);                   //|
-			$detalleRetencion->appendChild($montoOperacion);                                        //|
-			$porcentajeRetencion = $dom->createElement('PorcentajeRetencion', $content[6]);         //|
-			$detalleRetencion->appendChild($porcentajeRetencion);                                   //|
-			$root->appendChild($detalleRetencion);                                                  //|
-			$dom->appendChild($root);                                                               //|
-		}                                                                                           //|
-	// ------------------------------------///////////////////////------------------------------------
-		$dom->save($xml_file_name);                                                                 //|
-		echo "$xml_file_name has been successfully created";                                        //|
-	}                                                                                               //|
-	convertCsvToXmlString("/home/general/Devel/ficheros/example.csv");                              //|
+	function convertCsvToXmlString($filepath)
+	{
+		// revision de fichero existe y se accede
+		$proceed = is_file($filepath);
+		if(! $proceed)
+		{
+			$data = array();
+			$data['result'] = 'error';
+			$data['message'] = 'file access error or no file valid provided';
+			$result = json_encode($data);
+			return $result;
+		}
+		// revision de fichero existe y se accede
+		$proceed = is_readable($filepath);
+		if(! $proceed)
+		{
+			$data = array();
+			$data['result'] = 'error';
+			$data['message'] = 'file read error or no file valid provided';
+			$result = json_encode($data);
+			return $result;
+		}
+
+		$file_path = realpath($filepath);
+		$file_name = basename($filepath,'.txt');
+		$file_dirn = dirname($filepath);
+		$file_xmln = $file_name.'.xml';
+		$lines =  fopen($filepath, 'rt');
+
+		$dom = new DOMDocument();
+		$dom->encoding = 'utf-8';
+		$dom->xmlVersion = '1.0';
+		$dom->formatOutput = true;
+
+		$root = $dom->createElement('RelacionRetencionesISLR');
+		$rifAgente = new DOMAttr('RifAgente', '5467');
+		$root->setAttributeNode($rifAgente);
+		$periodo = new DOMAttr('Periodo', '54');
+		$root->setAttributeNode($periodo);
+
+		while(!feof($lines))
+		{
+			$line = fgets($lines);
+			$content = explode('#',$line);
+			$detalleRetencion = $dom->createElement('DetalleRetencion');
+			$rifRetenido = $dom->createElement('RifRetenido',$content[0]);
+			$detalleRetencion->appendChild($rifRetenido);
+			$numeroFactura = $dom->createElement('NumeroFactura', $content[1]);
+			$detalleRetencion->appendChild($numeroFactura);
+			$numeroControl = $dom->createElement('NumeroControl', $content[2]);
+			$detalleRetencion->appendChild($numeroControl);
+			$fechaOperacion = $dom->createElement('FechaOperacion',$content[3]);
+			$detalleRetencion->appendChild($fechaOperacion);
+			$codigoConcepto = $dom->createElement('CodigoConcepto', $content[4]);
+			$detalleRetencion->appendChild($codigoConcepto);
+			$montoOperacion = $dom->createElement('MontoOperacion', $content[5]);
+			$detalleRetencion->appendChild($montoOperacion);
+			$porcentajeRetencion = $dom->createElement('PorcentajeRetencion', $content[6]);
+			$detalleRetencion->appendChild($porcentajeRetencion);
+			$root->appendChild($detalleRetencion);
+			$dom->appendChild($root);
+		}
+
+		$filewrite = $dom->save($file_path.'/'.$file_xmln);
+		$result = 'success';
+		if($filewrite == false)
+			$result = 'error';
+		$data = array();
+		$data['result'] = $result;
+		$data['message'] = $filewrite;
+		$result = json_encode($data);
+		return $result;
+	}
 }
