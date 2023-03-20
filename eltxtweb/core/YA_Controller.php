@@ -39,7 +39,7 @@ class YA_Controller extends CI_Controller
 
 		$this->load->helper(array('form', 'url','html'));
 		$this->load->library('table');
-		$this->load->library('encrypt');
+//		$this->load->library('encrypt');
 		$this->load->library('session');
 
         $this->currentctr = $this->router->fetch_class();
