@@ -10,9 +10,11 @@
 		'class'     => 'form-group'
 	);
 	echo form_fieldset('Cargador XML para ERP купить 1.0', $xmlsfielset) . PHP_EOL;
-		echo form_open_multipart('retencionesxml/Converttxttoxml');
-		
+
+		echo form_open_multipart('xmls/Retencionesxml/convporcargatxtaxml');
+
 		echo div_open('class="form-group"');
+
 			$xmlsfilelabel = array(
 				'name'      => 'xmlsfilename',
 				'for'       => 'xmlsfilelabel',
@@ -21,6 +23,7 @@
 				'class'     => 'form-label mt-4'
 			);
 			echo form_label('Archivo con datos', 'xmlsfilelabel', $xmlsfilelabel);
+
 			$xmlsfilename = array(
 				'name'      => 'xmlsfilename',
 				'id'        => 'xmlsfilename',
@@ -29,7 +32,9 @@
 				'class'     => 'form-control'
 			);
 			echo form_upload($xmlsfilename);
+
 		echo div_close();
+
 		$xmlsbuttsend = array(
 			'name'      => 'xmlsbuttsend',
 			'id'        => 'xmlsbuttsend',
@@ -38,5 +43,5 @@
 			'class'     => 'btn btn-outline-primary'
 		);
 		echo form_submit('xmlsbuttsend','Convertir',$xmlsbuttsend);
-		
-    echo form_fieldset_close() . PHP_EOL;
+
+	echo form_fieldset_close() . PHP_EOL;

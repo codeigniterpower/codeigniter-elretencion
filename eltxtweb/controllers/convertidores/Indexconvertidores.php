@@ -1,12 +1,12 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 /**
- * Indexxmls eltxt Controller Class index de generacion de xmls
+ * Indexconvertidores eltxt Controller Class index de generacion de txts
  *
  * @package     contabal
  * @author      Lenz McKAY PICCORO @mckaygerhard
  */
-class Indexxmls extends YA_Controller {
+class Indexconvertidores extends YA_Controller {
 
 	function __construct()
 	{
@@ -24,10 +24,10 @@ class Indexxmls extends YA_Controller {
 	{
 
 		$data['menu'] = $this->genmenu();
-		$data['menusub'] = $this->genmenu('xmls');
-		$this->render('xmls_index',$data);
+		$data['menusub'] = $this->genmenu('txts');
+		$this->render('conver_index',$data);
 	}
 }
 
-/* End of file Indexxmls.php */
-/* Location: ./eltxtweb/controllers/Indexxmls.php */
+/* End of file Indexconvertidores.php */
+/* Location: ./eltxtweb/controllers/convertidores/Indexconvertidores.php */

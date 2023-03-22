@@ -28,10 +28,10 @@ defined('BASEPATH') || exit('No direct script access allowed');
  * @author     Angel Gonzalez Instagram:Angel_gonzalez_dev , Gitlab 1:@Radioactive99
  * @link       https://gitlab.com/codeigniterpower/codeigniter-eltxt/-/blob/master/assets/xmlcreate/convertXml.php
  */
-class Convertxml.php
+class Convertxml
 {
 
-	public function __construct($params)
+	public function __construct($params = NULL)
 	{
 		// Do something with $params
 	}
@@ -48,6 +48,7 @@ class Convertxml.php
 		$proceed = is_file($filepath);
 		if(! $proceed)
 		{
+			log_message('error','file access error or no file valid provided '.$filepath);
 			$data = array();
 			$data['result'] = 'error';
 			$data['message'] = 'file access error or no file valid provided';
@@ -58,6 +59,7 @@ class Convertxml.php
 		$proceed = is_readable($filepath);
 		if(! $proceed)
 		{
+			log_message('error','file read error or no file valid provided '.$filepath);
 			$data = array();
 			$data['result'] = 'error';
 			$data['message'] = 'file read error or no file valid provided';
@@ -65,11 +67,14 @@ class Convertxml.php
 			return $result;
 		}
 
+		log_message('info','procesando '.$filepath);
 		$file_path = realpath($filepath);
 		$file_name = basename($filepath,'.txt');
 		$file_dirn = dirname($filepath);
 		$file_xmln = $file_name.'.xml';
 		$lines =  fopen($filepath, 'rt');
+		$separator = ',';
+		log_message('info','archivo '.$file_name.' ruta '.$file_path.' directorio '.$file_dirn);
 
 		$dom = new DOMDocument();
 		$dom->encoding = 'utf-8';
@@ -81,12 +86,21 @@ class Convertxml.php
 		while(!feof($lines))
 		{
 			$line = fgets($lines);
-			$content = explode('#',$line);
+			log_message('debug','procesing line '.$line);
+
+			$validfileline = strpos($line, $separator);
+			if($validfileline == FALSE)
+			{
+				log_message('error','the line is not inf format.. avoiting '.$line);
+				continue;
+			}
+			
+			$content = explode($separator,$line);
 
 			if($generateroot == FALSE)
 			{
 				$root = $dom->createElement('RelacionRetencionesISLR');
-				$rifAgente = new DOMAttr('RifAgente', $content[0]);
+				$rifAgente = new DOMAttr('RifAgente', 'e');
 				$root->setAttributeNode($rifAgente);
 				$periodo = new DOMAttr('Periodo', $content[1]);
 				$root->setAttributeNode($periodo);
@@ -112,7 +126,7 @@ class Convertxml.php
 			$dom->appendChild($root);
 		}
 
-		$filewrite = $dom->save($file_path.'/'.$file_xmln);
+		$filewrite = $dom->save($file_dirn.'/'.$file_xmln);
 		$result = 'success';
 		if($filewrite == false)
 			$result = 'error';
