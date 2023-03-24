@@ -1,0 +1,9 @@
+/* reten_index */
+.contain-form{
+    width: max-content;
+}
+.contain-group{
+    width: 250px;
+    flex-flow: column;
+}
+/* .input */
