@@ -24,7 +24,7 @@ class Indexretenciones extends YA_Controller {
 	{
 
 		$data['menu'] = $this->genmenu();
-		$data['menusub'] = $this->genmenu('txts');
+		$data['menusub'] = $this->genmenu('retenciones');
 		$this->render('reten_index',$data);
 	}
 }
