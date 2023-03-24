@@ -9,7 +9,10 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 		// setup of our meta tags for currency project
 		echo header_meta();
 		// loading of own styling and script of project
-		echo link_css('bootstrap.css').PHP_EOL;
+		echo link_css('bootstrap.css').PHP_EOL;		
+		echo link_css('eltxtcss.css').PHP_EOL;
+
+
 		// compatibility of older browsers TODO: implement of the 
 		echo link_js('polyfill.js').PHP_EOL;
 	echo '</head>'. PHP_EOL;
