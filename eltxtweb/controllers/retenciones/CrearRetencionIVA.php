@@ -33,7 +33,7 @@ class CrearRetencionIVA extends YA_Controller {
 	{
 
 		$data['menu'] = $this->genmenu();
-		$data['menusub'] = $this->genmenu('txts');
+		$data['menusub'] = $this->genmenu('retenciones');
 		$this->render('txts_index',$data);
 	}
 
@@ -48,7 +48,7 @@ class CrearRetencionIVA extends YA_Controller {
 	{
 
 		$data['menu'] = $this->genmenu();
-		$data['menusub'] = $this->genmenu('txts');
+		$data['menusub'] = $this->genmenu('retenciones');
 		$this->render('reten_registrar_iva',$data);
 	}
 
@@ -63,7 +63,7 @@ class CrearRetencionIVA extends YA_Controller {
 	{
 
 		$data['menu'] = $this->genmenu();
-		$data['menusub'] = $this->genmenu('txts');
+		$data['menusub'] = $this->genmenu('retenciones');
 		$this->render('reten_comprobante_iva',$data);
 	}
 
