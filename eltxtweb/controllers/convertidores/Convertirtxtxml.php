@@ -7,7 +7,7 @@
  * @copyright Copyright (c) 2023 Angel Gonzalez Instagram:Angel_gonzalez_dev , Gitlab 1:@Radioactive99
  * @version ab - 1.0
  */
-class ConvertirTxtXml extends YA_Controller {
+class Convertirtxtxml extends YA_Controller {
 
 	/**
 	 * name: desconocido
@@ -36,7 +36,7 @@ class ConvertirTxtXml extends YA_Controller {
 		$data['currentinx'] = $this->currentinx;
 		$data['currenturl'] = $this->currenturl;
 		$data['menu'] = $this->genmenu();
-		$data['menu'] = $this->genmenu('xmls');
+		$data['menusub'] = $this->genmenu('convertidores');
 		$this->load->view('header',$data);
 		$this->load->view('xmls_index',$data);
 		$this->load->view('footer',$data);
@@ -56,7 +56,7 @@ class ConvertirTxtXml extends YA_Controller {
 		$data['currentinx'] = $this->currentinx;
 		$data['currenturl'] = $this->currenturl;
 		$data['menu'] = $this->genmenu();
-		$data['menu'] = $this->genmenu('xmls');
+		$data['menusub'] = $this->genmenu('convertidores');
 		$this->load->view('header',$data);
 		$this->load->view('xmls_convert1form',$data);
 		$this->load->view('footer',$data);
@@ -89,7 +89,7 @@ class ConvertirTxtXml extends YA_Controller {
 		$data['result'] = $result;
 
 		$data['menu'] = $this->genmenu();
-		$data['menu'] = $this->genmenu('xmls');
+		$data['menu'] = $this->genmenu('convertidores');
 		$this->load->view('header',$data);
 		$this->load->view('xmls_convert2file', $data);
 		$this->load->view('footer',$data);

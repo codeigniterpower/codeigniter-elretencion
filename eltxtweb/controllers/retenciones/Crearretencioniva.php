@@ -6,7 +6,7 @@
  * @package     contabal
  * @author      Lenz McKAY PICCORO @mckaygerhard
  */
-class CrearRetencionIVA extends YA_Controller {
+class Crearretencioniva extends YA_Controller {
 
 	/**
 	 * name: desconocido
@@ -49,7 +49,7 @@ class CrearRetencionIVA extends YA_Controller {
 
 		$data['menu'] = $this->genmenu();
 		$data['menusub'] = $this->genmenu('retenciones');
-		$this->render('reten_registrar_iva',$data);
+		$this->render('reten_iva_registrar',$data);
 	}
 
 	/**
@@ -64,7 +64,7 @@ class CrearRetencionIVA extends YA_Controller {
 
 		$data['menu'] = $this->genmenu();
 		$data['menusub'] = $this->genmenu('retenciones');
-		$this->render('reten_comprobante_iva',$data);
+		$this->render('reten_iva_comprobante',$data);
 	}
 
 }

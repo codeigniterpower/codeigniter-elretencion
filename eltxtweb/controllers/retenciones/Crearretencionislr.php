@@ -49,7 +49,7 @@ class Crearretencionislr extends YA_Controller {
 
 		$data['menu'] = $this->genmenu();
 		$data['menusub'] = $this->genmenu('retenciones');
-		$this->render('reten_registrar_islr',$data);
+		$this->render('reten_islr_registrar',$data);
 	}
 
 	/**
@@ -64,7 +64,7 @@ class Crearretencionislr extends YA_Controller {
 
 		$data['menu'] = $this->genmenu();
 		$data['menusub'] = $this->genmenu('tretencionesxts');
-		$this->render('reten_comprobante_islr',$data);
+		$this->render('reten_islr_comprobante',$data);
 	}
 
 

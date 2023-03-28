@@ -19,13 +19,24 @@ description=codeigniter-eltxt
 file_patterns=
 
 [long line marker]
-long_line_behaviour=1
-long_line_column=72
+long_line_behaviour=2
+long_line_column=78
 
 [VTE]
 last_dir=/home/general/Devel/codeigniter-eltxt/eltxtweb
 
 [files]
+current_page=9
+FILE_NAME_0=707;PHP;0;EUTF-8;1;1;0;%2Fhome%2Fgeneral%2FDevel%2Fcodeigniter-eltxt%2Feltxtweb%2Fviews%2Fheader.php;0;4
+FILE_NAME_1=3903;PHP;0;EUTF-8;1;1;0;%2Fhome%2Fgeneral%2FDevel%2Fcodeigniter-eltxt%2Feltxtweb%2Fhelpers%2Fheader_helper.php;0;4
+FILE_NAME_2=1471;PHP;0;EUTF-8;1;1;0;%2Fhome%2Fgeneral%2FDevel%2Fcodeigniter-eltxt%2Feltxtweb%2Fconfig%2Froutes.php;0;4
+FILE_NAME_3=259;PHP;0;EUTF-8;1;1;0;%2Fhome%2Fgeneral%2FDevel%2Fcodeigniter-eltxt%2Feltxtweb%2Fcontrollers%2Fretenciones%2FIndexretenciones.php;0;4
+FILE_NAME_4=1959;PHP;0;EUTF-8;1;1;0;%2Fhome%2Fgeneral%2FDevel%2Fcodeigniter-eltxt%2Feltxtweb%2Fviews%2Freten_index.php;0;4
+FILE_NAME_5=918;PHP;0;EUTF-8;1;1;0;%2Fhome%2Fgeneral%2FDevel%2Fcodeigniter-eltxt%2Feltxtweb%2Fcontrollers%2Fretenciones%2FCrearretencioniva.php;0;4
+FILE_NAME_6=264;PHP;0;EUTF-8;1;1;0;%2Fhome%2Fgeneral%2FDevel%2Fcodeigniter-eltxt%2Feltxtweb%2Fcontrollers%2Fretenciones%2FRegistrosretenciones.php;0;4
+FILE_NAME_7=1409;PHP;0;EUTF-8;1;1;0;%2Fhome%2Fgeneral%2FDevel%2Fcodeigniter-eltxt%2Feltxtweb%2Fcontrollers%2Fretenciones%2FCrearretencionislr.php;0;4
+FILE_NAME_8=0;PHP;0;EUTF-8;1;1;0;%2Fhome%2Fgeneral%2FDevel%2Fcodeigniter-eltxt%2Feltxtweb%2Fviews%2Freten_registrar_islr.php;0;4
+FILE_NAME_9=0;None;0;EUTF-8;1;1;0;%2Fhome%2Fgeneral%2FDevel%2Fcodeigniter-eltxt%2Feltxtweb%2Fviews%2FNewFile;0;4
 
 [editor]
 line_wrapping=false

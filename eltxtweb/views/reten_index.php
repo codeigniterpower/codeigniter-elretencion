@@ -1,189 +1,59 @@
 <?php 
-$islrAccumulatedWithholdingTax="islrCcumulatedWithholdingTax";
-$islrDateOfTransaction="islrDateOfTransaction";
-$voucherNumber="voucherNumber";
-$islrNameOrBusiness="islrNameOrBusiness";
-$islrRecordOfTaxInformation="islrRecordOfTaxInformation";
-$islrDate = 'islrDate';
-$isrlRegister = "isrlRegister";
-$isrlSubjectFiscal = "isrlSubjectFiscal";
-$islrInvoiceDate = "islrInvoiceDate";
-$invoiceNumber = 'invoiceNumber';
-$islrNumCtrolInvoice = "islrNumCtrolInvoice";
-$islrHoldCode = "islrHoldCode";
-$isrlAmountPaid = "isrlAmountPaid";
-$islrAmountOfHoldObject ="islrAmountOfHoldObject";
-$islrRate = "islrRate";
-$isrlDetained = "isrlDetained";
-$islrAmountObjectAccumulatedWithholding="islrAmountObjectAccumulatedWithholding";
-$islrProofNumber="islrProofNumber";
-echo div_open('class="contain"');
-echo div_open('class="contain-form mx-auto px-3 py-3"');
-	echo form_open('por/definir/metodo/controller', array('method'=> 'post', 'class' => ''));
-		echo div_open('class="contain d-flex"');
-			echo div_open('class="form-group me-3  contain-group  justify-content-between d-flex"');
-				echo form_label('Nombre o razón social del agente de retención', $islrNameOrBusiness);
-				echo br();
-				echo form_input(array('name'=>$islrNameOrBusiness, 'id'=>$islrNameOrBusiness, 'type'=>'text', 'class'=>'w-100', 'required') );
-			echo div_close();
-			
-			echo div_open('class="form-group contain-group  justify-content-between d-flex"');
-				echo form_label('Registro de información fiscal del agente de retención:', $islrRecordOfTaxInformation);
-				echo br();
-				echo form_input(array('name'=>$islrRecordOfTaxInformation, 'id'=>$islrRecordOfTaxInformation, 'type'=>'text', 'class'=>'w-100', 'placeholder'=>'', 'required') );
-			echo div_close();
-		echo div_close();
-		echo br();
-
-
-
-		echo div_open('class="contain d-flex"');
-			echo div_open('class="form-group me-3  contain-group  justify-content-between d-flex"');
-				echo form_label('Nombre o razón social del sujeto retenido', $islrNameOrBusiness);
-				echo br();
-				echo form_input(array('name'=>$islrNameOrBusiness, 'id'=>$islrNameOrBusiness, 'type'=>'text', 'class'=>'w-100', 'required') );
-			echo div_close();
-			
-			echo div_open('class="form-group contain-group  justify-content-between d-flex"');
-				echo form_label('Registro de información fiscal del sujeto de retenido (R.I.F):', $islrRecordOfTaxInformation);
-				echo br();
-				echo form_input(array('name'=>$islrRecordOfTaxInformation, 'id'=>$islrRecordOfTaxInformation, 'type'=>'text', 'class'=>'w-100', 'placeholder'=>'', 'required') );
-			echo div_close();
-		echo div_close();
-		echo br();
-
-
-
-		echo div_open('class="contain d-flex"');
-			echo div_open('class="form-group me-3  contain-group  justify-content-between d-flex"');
-				echo form_label('Fecha de Operación', $islrDateOfTransaction);
-				echo br();
-				echo form_input(array('name'=>$islrDateOfTransaction, 'id'=>$islrDateOfTransaction, 'type'=>'date', 'class'=>'w-100', 'required') );
-			echo div_close();
-			
-			echo div_open('class="form-group contain-group  justify-content-between d-flex"');
-				echo form_label('Numero de comprobante:', $voucherNumber);
-				echo br();
-				echo form_input(array('name'=>$voucherNumber, 'id'=>$voucherNumber, 'type'=>'text', 'class'=>'w-100', 'placeholder'=>'', 'required') );
-			echo div_close();
-		echo div_close();
-		echo br();
-
-
-
-		
-		echo div_open('class="contain d-flex"');
-			echo div_open('class="form-group me-3  contain-group  justify-content-between d-flex"');
-				echo form_label('Registro de informacion fiscal del sujeto retenido', $isrlSubjectFiscal);
-				echo br();
-				echo form_input(array('name'=>$isrlSubjectFiscal, 'id'=>$isrlSubjectFiscal, 'type'=>'text', 'class'=>'w-100', 'required') );
-			echo div_close();
-			
-			echo div_open('class="form-group contain-group  justify-content-between d-flex"');
-				echo form_label('Fecha de la factura:', $islrInvoiceDate);
-				echo br();
-				echo form_input(array('name'=>$islrInvoiceDate, 'id'=>$islrInvoiceDate, 'type'=>'date', 'class'=>'w-100', 'placeholder'=>'', 'required') );
-			echo div_close();
-		echo div_close();
-		echo br();
-		echo div_open('class="contain d-flex"');
-			echo div_open('class="form-group me-3  contain-group  justify-content-between d-flex"');
-				echo form_label('Registro de informacion fiscal del sujeto retenido', $isrlSubjectFiscal);
-				echo br();
-				echo form_input(array('name'=>$isrlSubjectFiscal, 'id'=>$isrlSubjectFiscal, 'type'=>'text', 'class'=>'w-100', 'required') );
-			echo div_close();
-			
-			echo div_open('class="form-group contain-group  justify-content-between d-flex"');
-				echo form_label('Fecha de la factura:', $islrInvoiceDate);
-				echo br();
-				echo form_input(array('name'=>$islrInvoiceDate, 'id'=>$islrInvoiceDate, 'type'=>'date', 'class'=>'w-100', 'placeholder'=>'', 'required') );
-			echo div_close();
-		echo div_close();
-
-		echo br();
-
-		echo div_open('class="contain d-flex"');
-			echo div_open('class="form-group me-3  contain-group  justify-content-between d-flex"');
-				echo form_label('Numero de la factura;', $invoiceNumber);
-				echo br();
-				echo form_input(array('name'=>$invoiceNumber, 'id'=>$invoiceNumber, 'type'=>'text', 'class'=>'w-100', 'required') );
-			echo div_close();
-
-			echo div_open('class="form-group contain-group  justify-content-between d-flex"');
-				echo form_label('Num.Ctrol De Factura:', $islrNumCtrolInvoice);
-				echo br();
-				echo form_input(array('name'=>$islrNumCtrolInvoice, 'id'=>$islrNumCtrolInvoice, 'type'=>'text', 'class'=>'w-100', 'placeholder'=>'', 'required') );
-			echo div_close();
-		echo div_close();
-
-		echo br();
-
-
-		echo div_open('class="contain d-flex"');
-			echo div_open('class="form-group me-3  contain-group  justify-content-between d-flex"');
-				echo form_label('Código de Retención;', $islrHoldCode);
-				echo br();
-				echo form_input(array('name'=>$islrHoldCode, 'id'=>$islrHoldCode, 'type'=>'text', 'class'=>'w-100', 'required') );
-			echo div_close();
-			
-			echo div_open('class="form-group contain-group  justify-content-between d-flex"');
-				echo form_label('Cant. Pagada:', $isrlAmountPaid);
-				echo br();
-				echo form_input(array('name'=>$isrlAmountPaid, 'id'=>$isrlAmountPaid, 'type'=>'text', 'class'=>'w-100', 'placeholder'=>'', 'required') );
-			echo div_close();
-		echo div_close();
-		echo br();
-
-		echo div_open('class="contain d-flex"');
-			echo div_open('class="form-group me-3  contain-group  justify-content-between d-flex"');
-				echo form_label('Cantidad de objeto de retención;', $islrAmountOfHoldObject);
-				echo br();
-				echo form_input(array('name'=>$islrAmountOfHoldObject, 'id'=>$islrAmountOfHoldObject, 'type'=>'text', 'class'=>'w-100', 'required') );
-			echo div_close();
-
-			echo div_open('class="form-group contain-group  justify-content-between d-flex"');
-				echo form_label('Tasa:', $islrRate);
-				echo br();
-				echo form_input(array('name'=>$islrRate, 'id'=>$islrRate, 'type'=>'text', 'class'=>'w-100', 'placeholder'=>'', 'required') );
-			echo div_close();
-		echo div_close();
-		echo br();
-
-
-		echo div_open('class="contain d-flex"');
-			echo div_open('class="form-group me-3  contain-group  justify-content-between d-flex"');
-				echo form_label('I.S.L.R Retenido;', $isrlDetained);
-				echo br();
-				echo form_input(array('name'=>$isrlDetained, 'id'=>$isrlDetained, 'type'=>'text', 'class'=>'w-100', 'required') );
-			echo div_close();
-
-			echo div_open('class="form-group contain-group  justify-content-between d-flex"');
-				echo form_label('Cantidad Objeto de Retencion Acumulada:', $islrAmountObjectAccumulatedWithholding);
-				echo br();
-				echo form_input(array('name'=>$islrAmountObjectAccumulatedWithholding, 'id'=>$islrAmountObjectAccumulatedWithholding, 'type'=>'text', 'class'=>'w-100', 'placeholder'=>'', 'required') );
-			echo div_close();
-		echo div_close();
-		echo br();
-
-
-		echo div_open('class="contain d-flex"');
-			echo div_open('class="form-group me-3  contain-group  justify-content-between d-flex w-100"');
-				echo form_label('Impuesto retenido acumulado', $islrAccumulatedWithholdingTax);
-				echo br();
-				echo form_input(array('name'=>$islrAccumulatedWithholdingTax, 'id'=>$islrAccumulatedWithholdingTax, 'type'=>'text', 'class'=>'w-100', 'required') );
-			echo div_close();
-		echo div_close();
-		echo br();
-		echo form_submit('makelogin', 'Get me in' , array('class'=>'btn btn-outline-warning w-100'));
-	echo form_close();
-echo div_close();
-
-echo div_close();
-
-?>
-
-<?php ?>
-	<!-- // $userurl = $this->input->get_post('userurl');
-	// echo form_fieldset('Retenciones ISLR e IVA ERP купить 1.0') . PHP_EOL;
-		// echo "hacer en esta vista 4 cartas css dos para la carga (cada fucujion respectiva) y dos para ver los comprobantes de cada uno";
-	// echo form_fieldset_close() . PHP_EOL; -->
+	$userurl = $this->input->get_post('userurl');
+	echo form_fieldset('Retenciones ISLR e IVA ERP купить 1.0') . PHP_EOL;
+		?>
+<!-- PROMOTION CURRENCYMANAGER BLOCK-->
+		<div class="contain-image">
+		  <div class="card-deck d-flex justify-content-around  flex-wrap">
+			<div class="card m-4" style="width: 300px;">
+			  <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+			  <div class="card-body">
+				<h3 class="card-title"><a href="<?php echo site_url();?>/retenciones/crearretencionislr/registrarislr">Registrar ISLR</a></h3>
+				<p class="card-text">Registrar una retencion de ISLR</p>
+			  </div>
+			  <div class="card-footer">
+				<small class="text-muted">
+					<a class="btn btn-default btn-outline-success" href="<?php echo site_url();?>/retenciones/crearretencionislr/registrarislr"><i class="icon icon-screen-desktop"></i>Registrar ISLR!</a>
+				</small>
+			  </div>
+			</div>
+			<div class="card m-4" style="width: 300px;">
+			  <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+			  <div class="card-body">
+				<h3 class="card-title"><a href="<?php echo site_url();?>/retenciones/crearretencioniva/registrariva">Registrar IVA</a></h3>
+				<p class="card-text">Registrar una retencian de IVA.</p>
+			  </div>
+			  <div class="card-footer">
+				<small class="text-muted">
+					<a class="btn btn-default btn-outline-success" href="<?php echo site_url();?>/retenciones/crearretencioniva/registrariva"><i class="icon icon-screen-desktop"></i>Registrar IVA</a>
+				</small>
+			  </div>
+			</div>
+			<div class="card m-4" style="width: 300px;">
+			  <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+			  <div class="card-body">
+				<h3 class="card-title"><a href="<?php echo site_url();?>/retenciones/registrosretenciones/retencionlistado">Retenciones!</a></h3>
+				<p class="card-text">Para editar o corregir los registros.</p>
+			  </div>
+			  <div class="card-footer">
+				<small class="text-muted">
+					<a class="btn btn-default btn-outline-success" href="<?php echo site_url();?>/retenciones/registrosretenciones/retencionlistado"><i class="icon icon-screen-desktop"></i>Retenciones!</a>
+				</small>
+			  </div>
+			</div>
+			<div class="card m-4" style="width: 300px;">
+			  <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+			  <div class="card-body">
+				<h3 class="card-title">Reservado</h3>
+				<p class="card-text">Este es un proyecto licenciado en CC-BY-NC-SA.</p>
+			  </div>
+			  <div class="card-footer">
+				<small class="text-muted">
+					<a class="btn btn-default btn-outline-success" href="https://gitlab.com/codeigniterpower/codeigniter-codeigniter-eltxt/tree/main/docs"><i class="icon icon-screen-desktop"></i>Licencia!</a>
+				</small>
+			  </div>
+			</div>
+		  </div>
+		</div>
+<?php
+    echo form_fieldset_close() . PHP_EOL;

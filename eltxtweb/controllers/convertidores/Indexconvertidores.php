@@ -24,7 +24,7 @@ class Indexconvertidores extends YA_Controller {
 	{
 
 		$data['menu'] = $this->genmenu();
-		$data['menusub'] = $this->genmenu('txts');
+		$data['menusub'] = $this->genmenu('convertidores');
 		$this->render('conver_index',$data);
 	}
 }

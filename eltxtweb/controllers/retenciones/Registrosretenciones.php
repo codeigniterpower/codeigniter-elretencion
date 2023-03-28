@@ -1,12 +1,12 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 /**
- * CrearRetencionISLR eltxt Controller Class para crear un de registro de retenciones
+ * CrearRetencionIVA eltxt Controller Class para crear un comprobante de IVA
  *
  * @package     contabal
  * @author      Lenz McKAY PICCORO @mckaygerhard
  */
-class CrearRetencionISLR extends YA_Controller {
+class Registrosretenciones extends YA_Controller {
 
 	/**
 	 * name: desconocido
@@ -33,42 +33,41 @@ class CrearRetencionISLR extends YA_Controller {
 	{
 
 		$data['menu'] = $this->genmenu();
-		$data['menusub'] = $this->genmenu('txts');
+		$data['menusub'] = $this->genmenu('retenciones');
 		$this->render('reten_index',$data);
 	}
 
 	/**
-	 * entry point para vista formulario de crear retencion de ISLR
+	 * entry point para vista formulario de crear retencion de IVA
 	 *
 	 * @access	public
 	 * @param	void
 	 * @return	void
 	 */
-	public function registrarislr()
+	public function retencionlistado()
 	{
 
 		$data['menu'] = $this->genmenu();
-		$data['menusub'] = $this->genmenu('txts');
-		$this->render('reten_registrar_islr',$data);
+		$data['menusub'] = $this->genmenu('retenciones');
+		$this->render('reten_registro_listados',$data);
 	}
 
 	/**
-	 * entry point para vista mostrar el comprobante de retencion de ISLR
+	 * entry point para vista mostrar el comprobante de retencion de IVA
 	 *
 	 * @access	public
 	 * @param	void
 	 * @return	void
 	 */
-	public function comprobanteislr($numerocomprobante = NULL)
+	public function retencionporid($idretencion = NULL)
 	{
 
 		$data['menu'] = $this->genmenu();
-		$data['menusub'] = $this->genmenu('txts');
-		$this->render('reten_comprobante_islr',$data);
+		$data['menusub'] = $this->genmenu('retenciones');
+		$this->render('reten_registro_detalle',$data);
 	}
-
 
 }
 
-/* End of file CrearRetencionISLR.php */
-/* Location: ./eltxtweb/controllers/retenciones/CrearRetencionISLR.php */
+/* End of file CrearRetencionIVA.php */
+/* Location: ./eltxtweb/controllers/retenciones/CrearRetencionIVA.php */
