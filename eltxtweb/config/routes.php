@@ -39,6 +39,8 @@
 */
 
 $route['default_controller'] = "Index";
+$route['retenciones'] = "retenciones/Indexretenciones";
+$route['convertidores'] = "convertidores/Indexconvertidores";
 $route['404_override'] = '';
 
 

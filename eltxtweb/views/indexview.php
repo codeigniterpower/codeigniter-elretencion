@@ -10,24 +10,24 @@
 			<div class="card m-4" style="width: 300px;">
 			  <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
 			  <div class="card-body">
-				<h3 class="card-title">CSV to XML</h3>
-				<p class="card-text">Carga tu TXT y obten tu XML!! para las retenciones.</p>
+				<h3 class="card-title">CSV y XML</h3>
+				<p class="card-text">General los TXT o XML con los convertidores.</p>
 			  </div>
 			  <div class="card-footer">
 				<small class="text-muted">
-					<a class="btn btn-default btn-outline-success" href="<?php echo site_url();?>/xmls/Indexxmls"><i class="icon icon-screen-desktop"></i>GenerarXML!</a>
+					<a class="btn btn-default btn-outline-success" href="<?php echo site_url();?>/convertidores/"><i class="icon icon-screen-desktop"></i>Convertidores!</a>
 				</small>
 			  </div>
 			</div>
 			<div class="card m-4" style="width: 300px;">
 			  <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
 			  <div class="card-body">
-				<h3 class="card-title">TXT para bancos</h3>
-				<p class="card-text">Genera los TXT de algunso bancos nacionales.</p>
+				<h3 class="card-title">Retenciones</h3>
+				<p class="card-text">Registra las retenciones de IVA y ISLR.</p>
 			  </div>
 			  <div class="card-footer">
 				<small class="text-muted">
-					<a class="btn btn-default btn-outline-success" href="<?php echo site_url();?>/txts/Indextxts"><i class="icon icon-screen-desktop"></i>GenerarTXT!</a>
+					<a class="btn btn-default btn-outline-success" href="<?php echo site_url();?>/retenciones/"><i class="icon icon-screen-desktop"></i>Retenciones!</a>
 				</small>
 			  </div>
 			</div>
