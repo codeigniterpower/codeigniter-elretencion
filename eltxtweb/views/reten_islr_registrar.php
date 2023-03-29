@@ -1,6 +1,6 @@
 <?php 
 /**
- * Copyright 2023 Angel Gonzalez Instagram:Angel_gonzalez_dev , Gitlab 1:@Radioactive99
+ * Copyright 2023 Angel Gonzalez Gmail:ag5193407@gmail.com  , Gitlab 1:@Radioactive99
  * Copyright 2023 PICCORO Lenz McKAY mckaygerhard
  * 
  * Usted es libre de:
@@ -23,34 +23,9 @@
  * @subpackage Libraries
  * @category   Files
  * @version    1.0.0-dev
- * @author     Angel Gonzalez Instagram:Angel_gonzalez_dev , Gitlab 1:@Radioactive99
+ * @author     Angel Gonzalez Gmail:ag5193407@gmail.com  , Gitlab 1:@Radioactive99
  * @link       https://gitlab.com/codeigniterpower/codeigniter-eltxt/-/blob/master/assets/xmlcreate/convertXml.php
  */
-//////////////////////////////////////////////////////////////////////////////////////////
-$islrDateOfTransaction = "islrDateOfTransaction";										//
-$islrVoucherNumber = "islrVoucherNumber";												//
-//////////////////////////////////////////////////////////////////////////////////////////
-$islrNameOrBusiness = "islrNameOrBusiness";												//
-$islrAgentRecordOfTaxInformation="islrAgentRecordOfTaxInformation";						//
-//////////////////////////////////////////////////////////////////////////////////////////
-$islrNameOrSubject = "islrNameOrSubject";												//
-$islrSubjectRecordOfTaxInformation ="islrSubjectRecordOfTaxInformation";				//
-//////////////////////////////////////////////////////////////////////////////////////////
-$isrlAgentFiscal = "isrlAgentFiscal";													//
-$islrInvoiceNumber="islrInvoiceNumber";													//
-//////////////////////////////////////////////////////////////////////////////////////////
-$islrNumCtrolInvoice = "islrNumCtrolInvoice";											//
-$islrInvoiceDate = "islrInvoiceDate";													//
-//////////////////////////////////////////////////////////////////////////////////////////
-$isrlAmountPaid = "isrlAmountPaid"; 													//
-$islrAmountOfHoldObject ="islrAmountOfHoldObject";										//
-//////////////////////////////////////////////////////////////////////////////////////////
-$islrRate = "islrRate";																  	//			
-$isrlDetained = "isrlDetained";															//
-//////////////////////////////////////////////////////////////////////////////////////////
-$islrAmountObjectAccumulatedWithholding="islrAmountObjectAccumulatedWithholding";		//
-$islrAccumulatedWithholdingTax = "islrCcumulatedWithholdingTax";						//
-//////////////////////////////////////////////////////////////////////////////////////////
 
 echo div_open('class="contain"');
 echo div_open('class="contain-form mx-auto px-3 py-3"');

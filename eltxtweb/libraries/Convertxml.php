@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright 2023 Angel Gonzalez Instagram:Angel_gonzalez_dev , Gitlab 1:@Radioactive99
+ * Copyright 2023 Angel Gonzalez Gmail:ag5193407@gmail.com  , Gitlab 1:@Radioactive99
  * Copyright 2023 PICCORO Lenz McKAY mckaygerhard
  * 
  * Usted es libre de:
@@ -25,7 +25,7 @@ defined('BASEPATH') || exit('No direct script access allowed');
  * @subpackage Libraries
  * @category   Files
  * @version    1.0.0-dev
- * @author     Angel Gonzalez Instagram:Angel_gonzalez_dev , Gitlab 1:@Radioactive99
+ * @author     Angel Gonzalez Gmail:ag5193407@gmail.com , Gitlab 1:@Radioactive99
  * @link       https://gitlab.com/codeigniterpower/codeigniter-eltxt/-/blob/master/assets/xmlcreate/convertXml.php
  */
 class Convertxml
