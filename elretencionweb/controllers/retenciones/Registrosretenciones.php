@@ -8,6 +8,9 @@
  */
 class Registrosretenciones extends YA_Controller {
 
+	/** data array for variables send to the view output */
+	public $data = NULL;
+
 	/**
 	 * name: desconocido
 	 * @param
@@ -17,7 +20,9 @@ class Registrosretenciones extends YA_Controller {
 	{
 		parent::__construct();
 		$this->load->helper(array('form', 'url','html'));
-		$this->output->enable_profiler(ENVIRONMENT !== 'production');
+		$data['menu'] = $this->genmenu();
+		$data['menusub'] = $this->genmenu('retenciones');
+		$this->data = $data;
 
 	}
 
@@ -32,8 +37,7 @@ class Registrosretenciones extends YA_Controller {
 	public function index()
 	{
 
-		$data['menu'] = $this->genmenu();
-		$data['menusub'] = $this->genmenu('retenciones');
+		$data = $this->data;
 		$this->render('reten_index',$data);
 	}
 
@@ -47,8 +51,7 @@ class Registrosretenciones extends YA_Controller {
 	public function retencionlistado()
 	{
 
-		$data['menu'] = $this->genmenu();
-		$data['menusub'] = $this->genmenu('retenciones');
+		$data = $this->data;
 		$this->render('reten_registro_listados',$data);
 	}
 
@@ -62,8 +65,7 @@ class Registrosretenciones extends YA_Controller {
 	public function retencionporid($idretencion = NULL)
 	{
 
-		$data['menu'] = $this->genmenu();
-		$data['menusub'] = $this->genmenu('retenciones');
+		$data = $this->data;
 		$this->render('reten_registro_detalle',$data);
 	}
 

@@ -8,6 +8,9 @@
  */
 class Crearagentederetencion extends YA_Controller {
 
+	/** data array for variables send to the view output */
+	public $data = NULL;
+
 	/**
 	 * name: desconocido
 	 * @param
@@ -31,8 +34,8 @@ class Crearagentederetencion extends YA_Controller {
 		$data["tipoDeRegistro"]="tipoDeRegistro";																		//		
 		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		$data['menu'] = $this->genmenu();
-		$data['menusub'] = $this->genmenu('retenciones');	
-		$this->var = $data;
+		$data['menusub'] = $this->genmenu('administrar');	
+		$this->data = $data;
 	}
 
 	/**
@@ -44,10 +47,7 @@ class Crearagentederetencion extends YA_Controller {
 	 */
 	public function index()
 	{
-		$data = $this->var;
-
-		$data['menu'] = $this->genmenu();
-		$data['menusub'] = $this->genmenu('administrar');
+		$data = $this->data;
 		$this->render('admin_index',$data);
 	}
 
@@ -61,8 +61,7 @@ class Crearagentederetencion extends YA_Controller {
 	public function registrarislr()
 	{
 
-		$data['menu'] = $this->genmenu();
-		$data['menusub'] = $this->genmenu('administrar');
+		$data = $this->data;
 		$this->render('admin_agenteretencion_registrar',$data);
 	}
 

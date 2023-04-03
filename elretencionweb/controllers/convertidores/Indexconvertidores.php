@@ -8,9 +8,16 @@
  */
 class Indexconvertidores extends YA_Controller {
 
+	/** data array for variables send to the view output */
+	public $data = NULL;
+
 	function __construct()
 	{
 		parent::__construct();
+		$this->load->helper(array('form', 'url','html'));
+		$data['menu'] = $this->genmenu();
+		$data['menusub'] = $this->genmenu('convertidores');
+		$this->data = $data;
 	}
 
 	/**
@@ -23,8 +30,7 @@ class Indexconvertidores extends YA_Controller {
 	public function index()
 	{
 
-		$data['menu'] = $this->genmenu();
-		$data['menusub'] = $this->genmenu('convertidores');
+		$data = $this->data;
 		$this->render('conver_index',$data);
 	}
 }

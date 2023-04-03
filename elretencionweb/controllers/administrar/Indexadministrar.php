@@ -1,12 +1,11 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 /**
- * Indexretenciones eltxt Controller Class index de registro de retenciones
- *
+ * Indexadministrar eltxt Controller Class index de administracion
  * @package     contabal
  * @author      Lenz McKAY PICCORO @mckaygerhard
  */
-class Indexretenciones extends YA_Controller {
+class Indexadministrar extends YA_Controller {
 
 	/** data array for variables send to the view output */
 	public $data = NULL;
@@ -16,7 +15,7 @@ class Indexretenciones extends YA_Controller {
 		parent::__construct();
 		$this->load->helper(array('form', 'url','html'));
 		$data['menu'] = $this->genmenu();
-		$data['menusub'] = $this->genmenu('retenciones');
+		$data['menusub'] = $this->genmenu('administrar');
 		$this->data = $data;
 	}
 
@@ -31,9 +30,9 @@ class Indexretenciones extends YA_Controller {
 	{
 
 		$data = $this->data;
-		$this->render('reten_index',$data);
+		$this->render('admin_index',$data);
 	}
 }
 
-/* End of file Indexretenciones.php */
-/* Location: ./eltxtweb/controllers/retenciones/Indexretenciones.php */
+/* End of file Indexadministrar.php */
+/* Location: ./eltxtweb/controllers/administrar/Indexadministrar.php */

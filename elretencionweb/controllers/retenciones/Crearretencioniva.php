@@ -7,7 +7,9 @@
  * @author      Lenz McKAY PICCORO @mckaygerhard
  */
 class Crearretencioniva extends YA_Controller {
-	private $var;
+
+	/** data array for variables send to the view output */
+	public $data = NULL;
 
 	/**
 	 * name: desconocido
@@ -46,7 +48,7 @@ class Crearretencioniva extends YA_Controller {
 		//////////////////////////////////////////////////////////////////////////////////////////////
 		$data['menu'] = $this->genmenu();
 		$data['menusub'] = $this->genmenu('retenciones');
-		$this->var = $data;
+		$this->data = $data;
 	}
 
 
@@ -60,9 +62,8 @@ class Crearretencioniva extends YA_Controller {
 	public function index()
 	{
 
-		$data['menu'] = $this->genmenu();
-		$data['menusub'] = $this->genmenu('retenciones');
-		$this->render('txts_index',$data);
+		$data = $this->data;
+		$this->render('reten_index',$data);
 	}
 
 	/**
@@ -75,9 +76,7 @@ class Crearretencioniva extends YA_Controller {
 	public function registrariva()
 	{
 
-		$data['menu'] = $this->genmenu();
-		$data['menusub'] = $this->genmenu('retenciones');
-		$data = $this->var;
+		$data = $this->data;
 		$this->render('reten_iva_registrar',$data);
 
 	}
@@ -92,8 +91,7 @@ class Crearretencioniva extends YA_Controller {
 	public function comprobanteiva($numerocomprobante = NULL)
 	{
 
-		$data['menu'] = $this->genmenu();
-		$data['menusub'] = $this->genmenu('retenciones');
+		$data = $this->data;
 		$this->render('reten_iva_comprobante',$data);
 	}
 
