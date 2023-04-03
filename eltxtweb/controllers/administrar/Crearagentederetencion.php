@@ -18,9 +18,22 @@ class Crearagentederetencion extends YA_Controller {
 		parent::__construct();
 		$this->load->helper(array('form', 'url','html'));
 		$this->output->enable_profiler(ENVIRONMENT !== 'production');
-
+		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		$data["nombreOrazonSocialDeLagenteDeRetención"] = "nombreOrazonSocialDeLagenteDeRetención";						//			
+		$data["registroDeInformacionFiscalDelAgenteDeRetencion"]="registroDeInformacionFiscalDelAgenteDeRetencion";		//		
+		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		$data["direccionComercial"] = "direccionComercial";																//								
+		$data["nombreLegal"]="nombreLegal";																				//
+		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		$data["nombreComercial"] ="nombreComercial";																	//
+		$data["codDenominacion"] = "codDenominacion";																	//
+		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		$data["tipoDeRegistro"]="tipoDeRegistro";																		//		
+		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		$data['menu'] = $this->genmenu();
+		$data['menusub'] = $this->genmenu('retenciones');	
+		$this->var = $data;
 	}
-
 
 	/**
 	 * index con menu
@@ -31,6 +44,7 @@ class Crearagentederetencion extends YA_Controller {
 	 */
 	public function index()
 	{
+		$data = $this->var;
 
 		$data['menu'] = $this->genmenu();
 		$data['menusub'] = $this->genmenu('administrar');
