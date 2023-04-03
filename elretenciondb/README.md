@@ -5,7 +5,7 @@ Directorio de DB txt
 
 La documentacion del sistema se divide en dos partes:
 
-* Documentacion de desarrollo DB: [eltxtdb-README.md](eltxtdb-README.md)
+* Documentacion de desarrollo DB: [elretenciondb-README.md](elretenciondb-README.md)
 * Documentacion ODBC saint: [odbc-README.md](odbc-README.md)
 * Modulacion datos `mproductos` explicado: [oasis_productos.md](oasis_productos.md)
 
@@ -13,19 +13,19 @@ La documentacion del sistema se divide en dos partes:
 
 El diseño requiere uso de `mysql-workbench` para visualizar el archivo "mwb" .
 
-* `eltxtdb.png` [eltxtdb.png](eltxtdb.png)
-* `eltxt.mwb` [eltxt.mwb](eltxt.mwb)
+* `elretenciondb.png` [elretenciondb.png](elretenciondb.png)
+* `elretencion.mwb` [elretencion.mwb](elretencion.mwb)
 
 ### Diccionario datos
 
 El diccionario de datos esta incluido en el scrip SQL, oasis no tiene aun:
 
-* `eltxtdb.sql` [eltxtdb.sql](eltxtdb.sql)
+* `elretenciondb.sql` [elretenciondb.sql](elretenciondb.sql)
 
 ### Script SQL
 
 El script se puede ejecutar completo y creara la DB/schema pero no un usuario.
 
-* `eltxtdb.sql` [eltxtdb.sql](eltxtdb.sql)
+* `elretenciondb.sql` [elretenciondb.sql](elretenciondb.sql)
 
 
