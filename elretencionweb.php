@@ -120,7 +120,7 @@ switch (ENVIRONMENT)
  *
  * NO TRAILING SLASH!
  */
-	$application_folder = 'eltxtweb';
+	$application_folder = 'elretencionweb';
 
 /*
  *---------------------------------------------------------------
@@ -136,6 +136,18 @@ switch (ENVIRONMENT)
  * NO TRAILING SLASH!
  */
 	$view_folder = '';
+
+
+/*
+ *---------------------------------------------------------------
+ * ASSETS DIRECTORY NAME
+ *---------------------------------------------------------------
+ *
+ * Use specific directory to automatize asets in js and css autotag funtions
+ *
+ * NO TRAILING SLASH!
+ */
+	$assets_folder = 'elretencionfiles';
 
 
 /*
@@ -314,6 +326,11 @@ switch (ENVIRONMENT)
 	$app_array = explode("/", APPPATH);
 	$howmany = count($app_array);
 	define('APPCURREN', $app_array[$howmany - 3]);
+
+	// Path to the front controller (this file) directory
+	define('ASTPATH', $assets_folder.DIRECTORY_SEPARATOR);
+
+
 /*
  * --------------------------------------------------------------------
  * LOAD THE BOOTSTRAP FILE

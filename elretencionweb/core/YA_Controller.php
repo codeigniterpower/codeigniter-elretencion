@@ -106,8 +106,8 @@ class YA_Controller extends CI_Controller
         $arraymodules = $this->arraymurls;        
         $arraycontrls = $this->getcontrollers($modulename);
 
-        $user_loged = $this->session->userdata('username');
-        $user_email = $this->session->userdata('useraddress');
+        $user_loged = $this->session->userdata('username') OR TRUE;
+        $user_email = $this->session->userdata('useraddress') OR TRUE;
 
         $menumainstring = '';
 
@@ -172,7 +172,7 @@ class YA_Controller extends CI_Controller
                 $menuname = str_replace('_', ' ', $menuname);
                 $menuname = ucwords($menuname);
                 $menulink = strtolower($menulink);
-                $menumainstring .= ' '.anchor($menulink,$menuname,'class=" shyButton button btn btn-10 btn-sm '.$menuitemactive.' " ').' ';
+                $menumainstring .= ' '.anchor($menulink,$menuname,'class="  '.$menuitemactive.' " ').' ';
             }
         }
         $menumainstring .= '</div>';
