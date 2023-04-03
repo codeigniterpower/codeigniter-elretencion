@@ -7,6 +7,7 @@
  * @author      Lenz McKAY PICCORO @mckaygerhard
  */
 class Crearretencionislr extends YA_Controller {
+	private $var;
 
 	/**
 	 * name: desconocido
@@ -18,9 +19,35 @@ class Crearretencionislr extends YA_Controller {
 		parent::__construct();
 		$this->load->helper(array('form', 'url','html'));
 		$this->output->enable_profiler(ENVIRONMENT !== 'production');
-
+		//////////////////////////////////////////////////////////////////////////////////////////
+		$data["islrDateOfTransaction"] = "islrDateOfTransaction";								//
+		$data["islrVoucherNumber"] = "islrVoucherNumber";										//
+		//////////////////////////////////////////////////////////////////////////////////////////
+		$data["islrNameOrBusiness"] = "islrNameOrBusiness";										//
+		$data["islrAgentRecordOfTaxInformation"]="islrAgentRecordOfTaxInformation";				//
+		//////////////////////////////////////////////////////////////////////////////////////////
+		$data["islrNameOrSubject"] = "islrNameOrSubject";										//
+		$data["islrSubjectRecordOfTaxInformation"] ="islrSubjectRecordOfTaxInformation";		//
+		//////////////////////////////////////////////////////////////////////////////////////////
+		$data["isrlAgentFiscal"] = "isrlAgentFiscal";											//
+		$data["islrInvoiceNumber"]="islrInvoiceNumber";											//
+		//////////////////////////////////////////////////////////////////////////////////////////
+		$data["islrNumCtrolInvoice"] = "islrNumCtrolInvoice";									//
+		$data["islrInvoiceDate"] = "islrInvoiceDate";											//
+		//////////////////////////////////////////////////////////////////////////////////////////
+		$data["isrlAmountPaid"] = "isrlAmountPaid"; 											//
+		$data["islrAmountOfHoldObject"] ="islrAmountOfHoldObject";								//
+		//////////////////////////////////////////////////////////////////////////////////////////
+		$data["islrRate"] = "islrRate";														  	//			
+		$data["isrlDetained"] = "isrlDetained";													//
+		//////////////////////////////////////////////////////////////////////////////////////////////
+		$data["islrAmountObjectAccumulatedWithholding"] ="islrAmountObjectAccumulatedWithholding";	//
+		$data["islrAccumulatedWithholdingTax"] = "islrCcumulatedWithholdingTax";					//
+		//////////////////////////////////////////////////////////////////////////////////////////////
+		$data['menu'] = $this->genmenu();
+		$data['menusub'] = $this->genmenu('retenciones');
+		$this->var = $data;
 	}
-
 
 	/**
 	 * index con menu
@@ -31,9 +58,7 @@ class Crearretencionislr extends YA_Controller {
 	 */
 	public function index()
 	{
-
-		$data['menu'] = $this->genmenu();
-		$data['menusub'] = $this->genmenu('retenciones');
+		$data = $this->var;
 		$this->render('reten_index',$data);
 	}
 
@@ -46,9 +71,7 @@ class Crearretencionislr extends YA_Controller {
 	 */
 	public function registrarislr()
 	{
-
-		$data['menu'] = $this->genmenu();
-		$data['menusub'] = $this->genmenu('retenciones');
+		$data = $this->var;
 		$this->render('reten_islr_registrar',$data);
 	}
 
@@ -63,7 +86,7 @@ class Crearretencionislr extends YA_Controller {
 	{
 
 		$data['menu'] = $this->genmenu();
-		$data['menusub'] = $this->genmenu('tretencionesxts');
+		$data['menusub'] = $this->genmenu('retenciones');
 		$this->render('reten_islr_comprobante',$data);
 	}
 

@@ -4,7 +4,7 @@
  * clase principal de carga de archivos, inicial
  * 
  * @author      PICCORO Lenz McKAY
- * @copyright Copyright (c) 2023 Angel Gonzalez Instagram:Angel_gonzalez_dev , Gitlab 1:@Radioactive99
+ * @copyright Copyright (c) 2023 Angel Gonzalez Gmail:ag5193407@gmail.com  , Gitlab 1:@Radioactive99
  * @version ab - 1.0
  */
 class Convertirtxtxml extends YA_Controller {
@@ -96,6 +96,20 @@ class Convertirtxtxml extends YA_Controller {
 
 	}
 
+
+		/**
+	 * convporcargatxtaxml recibe el archivo y datos relacionados y lo convierte, el formato es el mismo del xls que lo convierte
+	 * 
+	 * @name: convporcargatxtaxml
+	 * @param void (data es enviado por GET/POST)
+	 * @return void
+	 */
+	public function saveData()
+	{
+
+
+
+	}
 
 }
 
