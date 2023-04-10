@@ -7,7 +7,9 @@
  * @author      Lenz McKAY PICCORO @mckaygerhard
  */
 class Crearretencionislr extends YA_Controller {
-	private $var;
+
+	/** data array for variables send to the view output */
+	public $data = NULL;
 
 	/**
 	 * name: desconocido
@@ -46,7 +48,7 @@ class Crearretencionislr extends YA_Controller {
 		//////////////////////////////////////////////////////////////////////////////////////////////
 		$data['menu'] = $this->genmenu();
 		$data['menusub'] = $this->genmenu('retenciones');
-		$this->var = $data;
+		$this->data = $data;
 	}
 
 	/**
@@ -58,7 +60,7 @@ class Crearretencionislr extends YA_Controller {
 	 */
 	public function index()
 	{
-		$data = $this->var;
+		$data = $this->data;
 		$this->render('reten_index',$data);
 	}
 
@@ -71,7 +73,7 @@ class Crearretencionislr extends YA_Controller {
 	 */
 	public function registrarislr()
 	{
-		$data = $this->var;
+		$data = $this->data;
 		$this->render('reten_islr_registrar',$data);
 	}
 
@@ -85,8 +87,7 @@ class Crearretencionislr extends YA_Controller {
 	public function comprobanteislr($numerocomprobante = NULL)
 	{
 
-		$data['menu'] = $this->genmenu();
-		$data['menusub'] = $this->genmenu('retenciones');
+		$data = $this->data;
 		$this->render('reten_islr_comprobante',$data);
 	}
 

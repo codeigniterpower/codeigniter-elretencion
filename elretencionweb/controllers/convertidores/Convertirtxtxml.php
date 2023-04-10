@@ -9,6 +9,9 @@
  */
 class Convertirtxtxml extends YA_Controller {
 
+	/** data array for variables send to the view output */
+	public $data = NULL;
+
 	/**
 	 * name: desconocido
 	 * @param
@@ -18,7 +21,9 @@ class Convertirtxtxml extends YA_Controller {
 	{
 		parent::__construct();
 		$this->load->helper(array('form', 'url','html'));
-		$this->output->enable_profiler(ENVIRONMENT !== 'production');
+		$data['menu'] = $this->genmenu();
+		$data['menusub'] = $this->genmenu('convertidores');
+		$this->data = $data;
 
 	}
 
@@ -31,12 +36,7 @@ class Convertirtxtxml extends YA_Controller {
 	 */
 	public function index()
 	{
-		$data = array();
-		$data['currentctr'] = $this->currentctr;
-		$data['currentinx'] = $this->currentinx;
-		$data['currenturl'] = $this->currenturl;
-		$data['menu'] = $this->genmenu();
-		$data['menusub'] = $this->genmenu('convertidores');
+		$data = $this->data;
 		$this->load->view('header',$data);
 		$this->load->view('xmls_index',$data);
 		$this->load->view('footer',$data);
@@ -51,12 +51,7 @@ class Convertirtxtxml extends YA_Controller {
 	 */
 	public function convcargartxt()
 	{
-		$data = array();
-		$data['currentctr'] = $this->currentctr;
-		$data['currentinx'] = $this->currentinx;
-		$data['currenturl'] = $this->currenturl;
-		$data['menu'] = $this->genmenu();
-		$data['menusub'] = $this->genmenu('convertidores');
+		$data = $this->data;
 		$this->load->view('header',$data);
 		$this->load->view('xmls_convert1form',$data);
 		$this->load->view('footer',$data);

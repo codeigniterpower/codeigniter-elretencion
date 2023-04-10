@@ -8,9 +8,16 @@
  */
 class Indexretenciones extends YA_Controller {
 
+	/** data array for variables send to the view output */
+	public $data = NULL;
+
 	function __construct()
 	{
 		parent::__construct();
+		$this->load->helper(array('form', 'url','html'));
+		$data['menu'] = $this->genmenu();
+		$data['menusub'] = $this->genmenu('retenciones');
+		$this->data = $data;
 	}
 
 	/**
@@ -23,8 +30,7 @@ class Indexretenciones extends YA_Controller {
 	public function index()
 	{
 
-		$data['menu'] = $this->genmenu();
-		$data['menusub'] = $this->genmenu('retenciones');
+		$data = $this->data;
 		$this->render('reten_index',$data);
 	}
 }
