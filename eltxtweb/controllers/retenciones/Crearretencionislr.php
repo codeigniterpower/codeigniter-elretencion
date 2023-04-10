@@ -20,29 +20,29 @@ class Crearretencionislr extends YA_Controller {
 		$this->load->helper(array('form', 'url','html'));
 		$this->output->enable_profiler(ENVIRONMENT !== 'production');
 		//////////////////////////////////////////////////////////////////////////////////////////
-		$data["islrDateOfTransaction"] = "islrDateOfTransaction";								//
-		$data["islrVoucherNumber"] = "islrVoucherNumber";										//
-		//////////////////////////////////////////////////////////////////////////////////////////
-		$data["islrNameOrBusiness"] = "islrNameOrBusiness";										//
-		$data["islrAgentRecordOfTaxInformation"]="islrAgentRecordOfTaxInformation";				//
-		//////////////////////////////////////////////////////////////////////////////////////////
-		$data["islrNameOrSubject"] = "islrNameOrSubject";										//
-		$data["islrSubjectRecordOfTaxInformation"] ="islrSubjectRecordOfTaxInformation";		//
-		//////////////////////////////////////////////////////////////////////////////////////////
-		$data["isrlAgentFiscal"] = "isrlAgentFiscal";											//
-		$data["islrInvoiceNumber"]="islrInvoiceNumber";											//
-		//////////////////////////////////////////////////////////////////////////////////////////
-		$data["islrNumCtrolInvoice"] = "islrNumCtrolInvoice";									//
-		$data["islrInvoiceDate"] = "islrInvoiceDate";											//
-		//////////////////////////////////////////////////////////////////////////////////////////
-		$data["isrlAmountPaid"] = "isrlAmountPaid"; 											//
-		$data["islrAmountOfHoldObject"] ="islrAmountOfHoldObject";								//
-		//////////////////////////////////////////////////////////////////////////////////////////
-		$data["islrRate"] = "islrRate";														  	//			
-		$data["isrlDetained"] = "isrlDetained";													//
+		$data["islrFechaDeTransacción"] = "islrFechaDeTransacción";								//
+		$data["islrNumeroComprobante"] = "islrNumeroComprobante";										//
+		//////////////////////////////////////////////////////////////////////////////////////////////////
+		$data["islrNombreONegocio"] = "islrNombreONegocio";												//
+		$data["islrRegistroDeInformaciónFiscalDelAgente"]="islrRegistroDeInformaciónFiscalDelAgente";	//			
+		//////////////////////////////////////////////////////////////////////////////////////////////////
+		$data["islrNombreOAsunto"] = "islrNombreOAsunto";											//
+		$data["islrAsuntoRegistroDeInformaciónFiscal"] ="islrAsuntoRegistroDeInformaciónFiscal";	//	
 		//////////////////////////////////////////////////////////////////////////////////////////////
-		$data["islrAmountObjectAccumulatedWithholding"] ="islrAmountObjectAccumulatedWithholding";	//
-		$data["islrAccumulatedWithholdingTax"] = "islrCcumulatedWithholdingTax";					//
+		$data["islrNúmeroDeFactura"]="islrNúmeroDeFactura";											//
+		$data["isrlAgenteFiscal"] = "isrlAgenteFiscal";												//
+		//////////////////////////////////////////////////////////////////////////////////////////////
+		$data["islrNumControlFactura"] = "islrNumControlFactura";									//
+		$data["islrFechaDeFactura"] = "islrFechaDeFactura";											//
+		//////////////////////////////////////////////////////////////////////////////////////////////
+		$data["islrCantidadPagada"] = "islrCantidadPagada"; 										//	
+		$data["islrCantidadDeObjetoDeRetención"] ="islrCantidadDeObjetoDeRetención";				//				
+		//////////////////////////////////////////////////////////////////////////////////////////////
+		$data["islrTasa"] = "islrTasa";														  		//		
+		$data["isrlDetenido"] = "isrlDetenido";														//
+		//////////////////////////////////////////////////////////////////////////////////////////////
+		$data["islrCantidadObjetoRetencionAcumulada"] ="islrCantidadObjetoRetencionAcumulada";		//
+		$data["islrImpuestoRetenidoAcumulado"] = "islrImpuestoRetenidoAcumulado";					//
 		//////////////////////////////////////////////////////////////////////////////////////////////
 		$data['menu'] = $this->genmenu();
 		$data['menusub'] = $this->genmenu('retenciones');
