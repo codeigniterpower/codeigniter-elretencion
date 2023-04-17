@@ -45,24 +45,24 @@
 | the active record class
 */
 
-$active_group = 'eltxtdb';
+$active_group = 'elretenciondb';
 $active_record = TRUE;
 
 /* db central de la app la usa para determinar quien entra y sale y ve que cosa*/
-$db['eltxtdb']['hostname'] = '127.0.0.1';
-$db['eltxtdb']['username'] = 'eltxt';
-$db['eltxtdb']['password'] = 'eltxtdb.1';
-$db['eltxtdb']['database'] = 'eltxtdb'; // usar el script que esta en directorio eltxtdb
-$db['eltxtdb']['dbdriver'] = 'mysqli';
-$db['eltxtdb']['dbprefix'] = ''; /*blanks means use public , catalogo not use that due xtreme security */
-$db['eltxtdb']['pconnect'] = TRUE;
-$db['eltxtdb']['db_debug'] = FALSE;
-$db['eltxtdb']['cache_on'] = FALSE;
-$db['eltxtdb']['cachedir'] = '';
-$db['eltxtdb']['char_set'] = 'utf8';
-$db['eltxtdb']['dbcollat'] = 'utf8_general_ci';
-$db['eltxtdb']['swap_pre'] = '';
-$db['eltxtdb']['stricton'] = FALSE;
+$db['elretenciondb']['hostname'] = '127.0.0.1';
+$db['elretenciondb']['username'] = 'elretencion';
+$db['elretenciondb']['password'] = 'elretenciondb.1';
+$db['elretenciondb']['database'] = 'elretenciondb'; // usar el script que esta en directorio elretenciondb
+$db['elretenciondb']['dbdriver'] = 'mysqli';
+$db['elretenciondb']['dbprefix'] = ''; /*blanks means use public , catalogo not use that due xtreme security */
+$db['elretenciondb']['pconnect'] = TRUE;
+$db['elretenciondb']['db_debug'] = FALSE;
+$db['elretenciondb']['cache_on'] = FALSE;
+$db['elretenciondb']['cachedir'] = '';
+$db['elretenciondb']['char_set'] = 'utf8';
+$db['elretenciondb']['dbcollat'] = 'utf8_general_ci';
+$db['elretenciondb']['swap_pre'] = '';
+$db['elretenciondb']['stricton'] = FALSE;
 
 /* End of file database.php */
 /* Location: ./application/config/database.php */
