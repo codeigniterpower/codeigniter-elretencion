@@ -22,29 +22,29 @@ class Crearretencioniva extends YA_Controller {
 		$this->load->helper(array('form', 'url','html'));
 		$this->output->enable_profiler(ENVIRONMENT !== 'production');
 		//////////////////////////////////////////////////////////////////////////////////////////
-		$data["islrDateOfTransaction"] = "islrDateOfTransaction";								//
-		$data["islrVoucherNumber"] = "islrVoucherNumber";										//
+		$data["islrFechaDeTransacción"] = "islrFechaDeTransacción";								//
+		$data["islrNumeroComprobante"] = "islrNumeroComprobante";								//
 		//////////////////////////////////////////////////////////////////////////////////////////
-		$data["islrNameOrBusiness"] = "islrNameOrBusiness";										//
-		$data["islrAgentRecordOfTaxInformation"]="islrAgentRecordOfTaxInformation";				//
-		//////////////////////////////////////////////////////////////////////////////////////////
-		$data["islrNameOrSubject"] = "islrNameOrSubject";										//
-		$data["islrSubjectRecordOfTaxInformation"] ="islrSubjectRecordOfTaxInformation";		//
-		//////////////////////////////////////////////////////////////////////////////////////////
-		$data["isrlAgentFiscal"] = "isrlAgentFiscal";											//
-		$data["islrInvoiceNumber"]="islrInvoiceNumber";											//
-		//////////////////////////////////////////////////////////////////////////////////////////
-		$data["islrNumCtrolInvoice"] = "islrNumCtrolInvoice";									//
-		$data["islrInvoiceDate"] = "islrInvoiceDate";											//
-		//////////////////////////////////////////////////////////////////////////////////////////
-		$data["isrlAmountPaid"] = "isrlAmountPaid"; 											//
-		$data["islrAmountOfHoldObject"] ="islrAmountOfHoldObject";								//
-		//////////////////////////////////////////////////////////////////////////////////////////
-		$data["islrRate"] = "islrRate";														  	//			
-		$data["isrlDetained"] = "isrlDetained";													//
+		$data["islrNombreONegocio"] = "islrNombreONegocio";										//////////
+		$data["islrRegistroDeInformaciónFiscalDelAgente"]="islrRegistroDeInformaciónFiscalDelAgente"; 	//	
+		//////////////////////////////////////////////////////////////////////////////////////////////////
+		$data["islrNombreOAsunto"] = "islrNombreOAsunto";											//
+		$data["islrRegistroDeSujetoDeInformaciónFiscal"] ="islrRegistroDeSujetoDeInformaciónFiscal";//		
 		//////////////////////////////////////////////////////////////////////////////////////////////
-		$data["islrAmountObjectAccumulatedWithholding"] ="islrAmountObjectAccumulatedWithholding";	//
-		$data["islrAccumulatedWithholdingTax"] = "islrCcumulatedWithholdingTax";					//
+		$data["islrNúmeroDeFactura"]="islrNúmeroDeFactura";										//
+		$data["isrlAgenteFiscal"] = "isrlAgenteFiscal";											//
+		//////////////////////////////////////////////////////////////////////////////////////////
+		$data["IslrNumControlFactura"] = "IslrNumControlFactura";								//
+		$data["islrFechaDeFactura"] = "islrFechaDeFactura";										//
+		//////////////////////////////////////////////////////////////////////////////////////////
+		$data["isrlCantidadPagar"] = "isrlCantidadPagar"; 										//
+		$data["islrCantidadDeObjetoDeRetención"] ="islrCantidadDeObjetoDeRetención";			//
+		//////////////////////////////////////////////////////////////////////////////////////////
+		$data["islrTasa"] = "islrTasa";														  	//			
+		$data["isrlDetenido"] = "isrlDetenido";													//
+		//////////////////////////////////////////////////////////////////////////////////////////////
+		$data["islrCantidadObjetoRetencionAcumulada"] ="islrCantidadObjetoRetencionAcumulada";		//
+		$data["islrImpuestoRetenidoAcumulado"] = "islrImpuestoRetenidoAcumulado";					//
 		//////////////////////////////////////////////////////////////////////////////////////////////
 		$data['menu'] = $this->genmenu();
 		$data['menusub'] = $this->genmenu('retenciones');
