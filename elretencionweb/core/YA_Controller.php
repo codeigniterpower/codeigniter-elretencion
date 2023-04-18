@@ -25,8 +25,14 @@ class YA_Controller extends CI_Controller
 	public $permite = FALSE;
 	/**  nombre de usuario tomado de la session activa */
 	public $username = FALSE;
+	/**  correos de usuario tomado de la session activa */
+	public $usermails = FALSE;
+	/**  estado de usuario tomado de la session activa */
+	public $userstatus = 'INACTIVO';
 	/** mecanismo barato para ver el controller que se denego desde la herencia*/
 	public $modulo = NULL;
+	/** objeto session del usuario */
+	private $sessobj = NULL;
 
 	/**
 	 * establece librerias de sesion y permisos asi como modulo si se especifica
@@ -65,23 +71,39 @@ class YA_Controller extends CI_Controller
 	}
 
 	/** revision de session, si invalidad redirige a login */
-	public function checku()
+	public function checksession()
 	{
 		$this->userurl = $this->input->get_post('userurl');
 		$this->currenturl = $this->uri->uri_string(); //$this->uri->segment(1).'/'.$this->uri->segment(2).'/'.$this->uri->segment(3).'/'.$this->uri->segment(4);
+		$this->sessobj = $this->session->userdata('userdata');
 
 		$userurl = str_replace('/','',$this->userurl);
 		$redirurl = $this->currenturl;
 		if( $userurl != '')
 			$redirurl = $this->userurl;
 
-		$this->permite = $permited = $this->login->usercheck();
-		if( $permited != 1 OR $permited === FALSE)
+		if($this->sessobj == NULL)
 		{
-			redirect('indexlogin/entrarlogin?userurl='.$redirurl,'location');
+			redirect('Indexauth/auth/login?userurl='.$redirurl,'location');
+			return;
 		}
-		
-		$this->username = $username;
+		$this->datasession();
+	}
+
+	/** datos de session, si invalido genera invalidez */
+	public function datasession()
+	{
+		$userdata = $this->sessobj;
+		if( is_array($userdata) )
+		{
+			foreach($userdata as $variable => $varvalue)
+			{
+				if( $variable == 'userkey' )
+					continue;
+				if( array_key_exists($variable, $userdata) )
+					$this->$variable = $userdata[$variable];
+			}
+		}
 	}
 
 	/* 
@@ -93,25 +115,24 @@ class YA_Controller extends CI_Controller
 	 */
 	public function genmenu($modulename = NULL, $userdata = NULL)
 	{
+		$this->sessobj = $this->session->userdata('userdata');
+
 		$currentctr = $this->currentctr;
 		$currentinx = $this->currentinx;
 		$currenturl = $this->currenturl;
 		$arraymodules = $this->arraymurls;        
 		$arraycontrls = $this->getcontrollers($modulename);
+		$user_loged = FALSE;
+		$user_email = 'missing.mail';
+		$userdata = $this->sessobj;
+
+		log_message('info','entrando objeto session '.print_r($userdata,TRUE));
 
 		if( is_array($userdata) )
 		{
 			if( array_key_exists('username', $userdata) )
-				$user_loged = $userdata['username'] OR TRUE;
-			if( array_key_exists('username', $userdata) )
-				$user_email = $this->session->userdata('useraddress') OR TRUE;
+				$user_loged = $userdata['username'] OR FALSE;
 		}
-		else
-		{
-			$user_loged = FALSE;
-			$user_email = FALSE;
-		}
-
 		$menumainstring = '';
 
 		if(($modulename == NULL OR $modulename == FALSE) AND $currentinx !== '')
@@ -121,10 +142,10 @@ class YA_Controller extends CI_Controller
 
 			$menumainstring = '<div class="topnav '.$menuclasssubdi.'">';
 			$menumainstring .= ' '.anchor('../../','Intranet','class="" ');
-			if( $user_email == NULL OR $user_loged == FALSE )
-				$menumainstring .= ' '.anchor('/Index/vistainicio','Inicio','class="active" ');
+			if( $user_loged == FALSE )
+				$menumainstring .= ' '.anchor('/Indexauth/auth/logauth','Inicio','class="active" ');
 			else
-				$menumainstring .= ' '.anchor('/Index/vistasalida','Logout','class="active" ');
+				$menumainstring .= ' '.anchor('/Indexauth/auth/logout','Logout','class="active" ');
 
 			$modulename = $arraymodules[0];
 			foreach($arraycontrls as $menuidex=>$menulink)
@@ -144,10 +165,11 @@ class YA_Controller extends CI_Controller
 				{
 					if(stripos($menuclic,$modulename)>1)
 						$menuitemactive = 'active';
-					$menumainstring .= ' '.anchor($menulink,ucfirst($menuname),'class=" '.$menuitemactive.' " ');
+					if( $user_loged != FALSE )
+						$menumainstring .= ' '.anchor($menulink,ucfirst($menuname),'class=" '.$menuitemactive.' " ');
 				}
 			}
-			$menumainstring .= ' '.anchor('/Index/vistasalida','Salir','class="" ');
+			$menumainstring .= ' '.anchor('/Index/index','Home','class="" ');
 		}
 		else
 		{
@@ -157,20 +179,25 @@ class YA_Controller extends CI_Controller
 			{
 				$menuitemactive = '';
 				if(stripos($menulink,$currentctr)>1)
-				$menuitemactive = 'active';
+					$menuitemactive = 'active';
 				if(stripos($menulink,'proc')>1)
 					continue;
+
 				$findname = '/'.$modulename.'/';
 				$menuname = preg_replace($findname, '', $menulink, 1);
 				$menuname = str_replace('/','',$menuname);
 				$menuname = str_replace('m', '', $menuname);
+
 				if(stripos($menulink,'Index')>1)
-				$menuname = 'Recomenzar';
+					$menuname = 'Recomenzar';
+
 				$menuname = ucfirst($menuname);
 				$menuname = str_replace('_', ' ', $menuname);
 				$menuname = ucwords($menuname);
 				$menulink = strtolower($menulink);
-				$menumainstring .= ' '.anchor($menulink,$menuname,'class="  '.$menuitemactive.' " ').' ';
+
+				if( $user_loged != FALSE )
+					$menumainstring .= ' '.anchor($menulink,$menuname,'class="  '.$menuitemactive.' " ').' ';
 			}
 		}
 		$menumainstring .= '</div>';

@@ -13,6 +13,7 @@ class Indexadministrar extends YA_Controller {
 	function __construct()
 	{
 		parent::__construct();
+		$this->checksession();
 		$this->load->helper(array('form', 'url','html'));
 		$data['menu'] = $this->genmenu();
 		$data['menusub'] = $this->genmenu('administrar');

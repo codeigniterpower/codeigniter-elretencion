@@ -21,15 +21,19 @@ class Index extends YA_Controller {
 	function __construct()
 	{
 		parent::__construct();
-		$this->load->helper(array('form', 'url','html'));
 		$data['menu'] = $this->genmenu();
-		$data['menusub'] = $this->genmenu('retenciones');
+		$this->datasession();
+		$data['username'] = $this->username;
+		$data['estado'] = $this->estado;
+		$data['sessionficha'] = $this->sessionficha;
+		$data['sessionflag'] = $this->sessionflag;
 		$this->data = $data;
 
 	}
 
 	/**
 	 * index que muestra vista con instrucciones, las instrucciones estan en la vista indexinput
+	 * esta index es un enlace de presentacion y no necesita protegerse de sesion
 	 * 
 	 * @name: index
 	 * @param void
@@ -39,45 +43,46 @@ class Index extends YA_Controller {
 	{
 		$data = $this->data;
 		$this->load->view('header',$data);
-		$this->load->view('indexview',$data);
+		$this->load->view('vista_publica',$data);
 		$this->load->view('footer',$data);
 	}
 
 	/**
 	 * index que muestra vista con instrucciones, las instrucciones estan en la vista indexinput
+	 * esta vista revisa si es sesion activa y la muestra, sino redirige a login.
 	 * 
 	 * @name: vistainicio
 	 * @param void
 	 * @return void
 	 */
-	public function vistainicio()
+	public function vistainterna()
 	{
-		$data = array();
+		$this->checksession();
+		$data = $this->data;
 		$data['currentctr'] = $this->currentctr;
 		$data['currentinx'] = $this->currentinx;
 		$data['currenturl'] = $this->currenturl;
-		$data['menusub'] = $this->genmenu();
 		$this->load->view('header',$data);
-		$this->load->view('indexview',$data);
+		$this->load->view('vista_home',$data);
 		$this->load->view('footer',$data);
 	}
 
 	/**
 	 * vistasalida que muestra vista con instrucciones, las instrucciones estan en la vista indexinput
+	 * esta vista es publica por defecto, y no necesita revisarse por sesion activa
 	 * 
 	 * @name: vistasalida
 	 * @param void
 	 * @return void
 	 */
-	public function vistasalida()
+	public function vistapublica()
 	{
-		$data = array();
+		$data = $this->data;
 		$data['currentctr'] = $this->currentctr;
 		$data['currentinx'] = $this->currentinx;
 		$data['currenturl'] = $this->currenturl;
-		$data['menusub'] = $this->genmenu();
 		$this->load->view('header',$data);
-		$this->load->view('indexview',$data);
+		$this->load->view('vista_publica',$data);
 		$this->load->view('footer',$data);
 	}
 
