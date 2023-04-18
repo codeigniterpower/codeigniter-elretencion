@@ -18,9 +18,9 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 	echo '</head>'. PHP_EOL;
 	echo '<body>'.PHP_EOL;
 echo '<!-- START MAIN CONTAINER AND MENU TAG CNTAINER , it ends in the footer view -->';
-echo '<div class="container-fluid">'.PHP_EOL;
+echo '<div class="container-fluid" >'.PHP_EOL;
 	?>
-		<div id="menu" style="height: 60px; margin: 0 0 0 0">
+		<div id="menu" class="position-fixed w-100" style="height: 60px; margin: 0 0 0 0">
 			<center>
 			<nav id="menu1" class="nav nav-menu"style="height: 80px; margin: 0 0 0 0" tabindex="-1" onclick="this.focus()">
 				<div class="container">
