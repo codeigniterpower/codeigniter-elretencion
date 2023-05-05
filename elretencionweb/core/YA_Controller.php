@@ -49,7 +49,7 @@ class YA_Controller extends CI_Controller
 
 		$this->load->helper(array('form', 'url','html'));
 		$this->load->library('table');
-		$this->load->library('encrypt');
+		//$this->load->library('encrypt');
 		$this->load->library('session');
 
 		$this->currentctr = $this->router->fetch_class();
@@ -99,6 +99,10 @@ class YA_Controller extends CI_Controller
 	public function datasession()
 	{
 		$userdata = $this->sessobj;
+		$this->username = NULL;
+		$this->estado = NULL;
+		$this->sessionficha = NULL;
+		$this->sessionflag = NULL;
 		if( is_array($userdata) )
 		{
 			foreach($userdata as $variable => $varvalue)
