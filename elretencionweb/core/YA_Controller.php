@@ -33,6 +33,10 @@ class YA_Controller extends CI_Controller
 	public $modulo = NULL;
 	/** objeto session del usuario */
 	private $sessobj = NULL;
+	/** creation time */
+	public $sessionficha = NULL;
+	/** modification time */
+	public $sessionflag = NULL;
 
 	/**
 	 * establece librerias de sesion y permisos asi como modulo si se especifica
@@ -54,6 +58,7 @@ class YA_Controller extends CI_Controller
 		$this->currenturl = $this->uri->uri_string();
 		$this->arraymurls = explode("/", $this->currenturl );
 		$this->currentmod = $this->arraymurls[0];
+		$this->sessionflag = date('YmdHis');
 
 		if($modulo !== NULL AND trim($modulo) !== '')
 			$this->module = $modulo;
@@ -98,10 +103,11 @@ class YA_Controller extends CI_Controller
 		{
 			foreach($userdata as $variable => $varvalue)
 			{
-				if( $variable == 'userkey' )
-					continue;
 				if( array_key_exists($variable, $userdata) )
+				{
 					$this->$variable = $userdata[$variable];
+					
+				}
 			}
 		}
 	}

@@ -21,12 +21,9 @@ class Index extends YA_Controller {
 	function __construct()
 	{
 		parent::__construct();
-		$data['menu'] = $this->genmenu();
 		$this->datasession();
-		$data['username'] = $this->username;
-		$data['estado'] = $this->estado;
-		$data['sessionficha'] = $this->sessionficha;
-		$data['sessionflag'] = $this->sessionflag;
+		$data['menu'] = $this->genmenu();
+		$data['menusub'] = '';
 		$this->data = $data;
 
 	}
@@ -62,6 +59,10 @@ class Index extends YA_Controller {
 		$data['currentctr'] = $this->currentctr;
 		$data['currentinx'] = $this->currentinx;
 		$data['currenturl'] = $this->currenturl;
+		$data['username'] = $this->username;
+		$data['userstatus'] = $this->userstatus;
+		$data['sessionficha'] = $this->sessionficha;
+		$data['sessionflag'] = $this->sessionflag;
 		$this->load->view('header',$data);
 		$this->load->view('vista_home',$data);
 		$this->load->view('footer',$data);
