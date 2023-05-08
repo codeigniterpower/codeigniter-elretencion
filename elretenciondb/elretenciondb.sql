@@ -89,7 +89,7 @@ DROP TABLE IF EXISTS `reten_usuarios` ;
 CREATE TABLE IF NOT EXISTS `reten_usuarios` (
   `username` VARCHAR(40) NOT NULL COMMENT 'login del usuario, id del correo para este sistema especifico',
   `userkey` VARCHAR(40) NULL COMMENT 'sincronia con al calve del usuario',
-  `estado` VARCHAR(40) NULL COMMENT 'ACTIVO|INACTIVO',
+  `userstatus` VARCHAR(40) NULL COMMENT 'ACTIVO|INACTIVO',
   `sessionflag` VARCHAR(40) NULL COMMENT 'YYYYMMDDhhmmss.entidad.usuario quien altero',
   `sessionficha` VARCHAR(40) NULL COMMENT 'YYYYMMDDhhmmss.entidad.usuario quien creo',
   PRIMARY KEY (`username`))
