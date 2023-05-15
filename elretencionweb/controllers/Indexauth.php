@@ -51,7 +51,7 @@ class Indexauth extends YA_Controller {
 
 	public function auth($action = 'logout', $username = NULL, $userclave = NULL)
 	{
-		$typeerror = 'logout';
+		$typeerror = 'nologin';
 
 		if($username == NULL)
 			$username = $this->input->post('username');
@@ -69,8 +69,8 @@ class Indexauth extends YA_Controller {
 				$typeerror = 'authcheck';
 		}
 
-		if ( $action == 'logauth' )
-			$typeerror = 'logauth';
+		if ( $action == 'logauth' OR $action == 'logout' )
+			$typeerror = $action;
 
 		$data = array();
 		if($rs_access AND $im_access)
@@ -80,7 +80,7 @@ class Indexauth extends YA_Controller {
 		}
 		else
 		{
-			$this->session->sess_destroy(); sleep(3);
+			$this->session->sess_destroy(); sleep(1);
 			header('location:'.site_url('/Indexauth/index/'.$typeerror));
 		}
 	}
