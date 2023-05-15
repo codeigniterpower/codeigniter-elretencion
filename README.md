@@ -8,7 +8,9 @@ definida por acceso, estado y aplicacion que accece.
 ## Estado de el proyecto
 
 | txt tipo                 | nuevo modulo migrado    | estado      | documentacion |
-| ------------------------ | ----------------------- | ----------- | ------------- | 
+| ------------------------ | ----------------------- | ----------- | ------------- |
+| Manejo de RIF            | administrar/RazonSicial | TERMINADO   | [docs/rif-explicacion.md](docs/rif-explicacion.md)
+| Manejo de retenciones    | retenciones/*           | INICIADO 1% | |
 | XML retenciones ISLR     | xmls/retencionesxml     | INICIADO 2% | [docs/xmls-retencionesxml.md](docs/xmls-retencionesxml.md) | 
 | txt generacion pagos     | txts/generarbanescopago | INICIADO 0% | [docs/txts-pagosnominas.md](docs/txts-pagosnominas.md) | 
 
