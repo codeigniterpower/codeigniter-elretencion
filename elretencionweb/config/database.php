@@ -48,10 +48,26 @@
 $active_group = 'elretenciondb';
 $active_record = TRUE;
 
+/* db central de los demas sistemas.. usada para data comun */
+$db['eladmindb']['hostname'] = '127.0.0.1';
+$db['eladmindb']['username'] = 'root';
+$db['eladmindb']['password'] = 'root';
+$db['eladmindb']['database'] = 'eladmindb'; // usar el script que esta en directorio eladmindb
+$db['eladmindb']['dbdriver'] = 'mysqli';
+$db['eladmindb']['dbprefix'] = ''; /*blanks means use public , catalogo not use that due xtreme security */
+$db['eladmindb']['pconnect'] = TRUE;
+$db['eladmindb']['db_debug'] = FALSE;
+$db['eladmindb']['cache_on'] = FALSE;
+$db['eladmindb']['cachedir'] = '';
+$db['eladmindb']['char_set'] = 'utf8';
+$db['eladmindb']['dbcollat'] = 'utf8_general_ci';
+$db['eladmindb']['swap_pre'] = '';
+$db['eladmindb']['stricton'] = FALSE;
+
 /* db central de la app la usa para determinar quien entra y sale y ve que cosa*/
 $db['elretenciondb']['hostname'] = '127.0.0.1';
-$db['elretenciondb']['username'] = 'elretencion';
-$db['elretenciondb']['password'] = 'elretenciondb.1';
+$db['elretenciondb']['username'] = 'root';
+$db['elretenciondb']['password'] = 'root';
 $db['elretenciondb']['database'] = 'elretenciondb'; // usar el script que esta en directorio elretenciondb
 $db['elretenciondb']['dbdriver'] = 'mysqli';
 $db['elretenciondb']['dbprefix'] = ''; /*blanks means use public , catalogo not use that due xtreme security */

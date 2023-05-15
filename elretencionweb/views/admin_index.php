@@ -29,63 +29,34 @@
 
 echo div_open('class="contain"');
 echo div_open('class="contain-form mx-auto px-3 py-3"');
-	echo form_open('por/definir/metodo/controller', array('method'=> 'post', 'class' => ''));
 
 		echo br();
 		echo div_open('class="contain d-flex"');
+			echo form_fieldset('Razones Sociales');
 		    echo div_open('class="form-group contain-group me-3 justify-content-between d-flex"');
-	            echo form_label('Nombre o razón social:', $nombreOrazonSocialDeLagenteDeRetención);
-		        echo br();
-	            echo form_input(array('name'=>$nombreOrazonSocialDeLagenteDeRetención, 'id'=>$nombreOrazonSocialDeLagenteDeRetención, 'type'=>'text', 'class'=>'w-100', 'placeholder'=>'', 'required') );
+				$buton1 = form_submit('makers', 'Crear' , array('class'=>'btn btn-outline-warning w-100'));
+	            echo anchor('administrar/Razonsocial/registrarrazonsocial',$buton1);
 	        echo div_close();
 			echo div_open('class="form-group me-3  contain-group  justify-content-between d-flex"');
-				echo form_label('Registro de información fiscal:', $registroDeInformacionFiscalDelAgenteDeRetencion);
-				echo br();
-				echo form_input(array('name'=>$registroDeInformacionFiscalDelAgenteDeRetencion, 'id'=>$registroDeInformacionFiscalDelAgenteDeRetencion, 'type'=>'text', 'class'=>'w-100', 'required') );
+				$buton2 = form_submit('makerl', 'Listar' , array('class'=>'btn btn-outline-warning w-100'));
+	            echo anchor('administrar/Razonsocial/razonsocialporid',$buton2);
 			echo div_close();
+			echo form_fieldset_close();
 		echo div_close();
 
-		echo br();
 		echo div_open('class="contain d-flex"');
+			echo form_fieldset('Accesos de Usuario');
 		    echo div_open('class="form-group contain-group me-3 justify-content-between d-flex"');
-	            echo form_label('Dirección comercial:', $direccionComercial);
-		        echo br();
-	            echo form_input(array('name'=>$direccionComercial, 'id'=>$direccionComercial, 'type'=>'text', 'class'=>'w-100', 'placeholder'=>'', 'required') );
+				$buton1 = form_submit('makers', 'Registrar' , array('class'=>'btn btn-outline-warning w-100'));
+	            echo anchor('administrar/Accesos/registraraccesos',$buton1);
 	        echo div_close();
 			echo div_open('class="form-group me-3  contain-group  justify-content-between d-flex"');
-				echo form_label('Nombre legal:', $nombreLegal);
-				echo br();
-				echo form_input(array('name'=>$nombreLegal, 'id'=>$nombreLegal, 'type'=>'text', 'class'=>'w-100', 'required') );
+				$buton2 = form_submit('makerl', 'Listar' , array('class'=>'btn btn-outline-warning w-100'));
+	            echo anchor('administrar/Accesos/accesosporid',$buton2);
 			echo div_close();
-		echo div_close();
-        echo br();
-
-
-		echo div_open('class="contain d-flex"');
-		    echo div_open('class="form-group contain-group me-3 justify-content-between d-flex"');
-	            echo form_label('nombre comercial:', $nombreComercial);
-		        echo br();
-	            echo form_input(array('name'=>$nombreComercial, 'id'=>$nombreComercial, 'type'=>'text', 'class'=>'w-100', 'placeholder'=>'', 'required') );
-	        echo div_close();
-			echo div_open('class="form-group me-3  contain-group  justify-content-between d-flex"');
-				echo form_label('Tipo de denominación.:', $codDenominacion);
-				echo br();
-				echo form_input(array('name'=>$codDenominacion, 'id'=>$codDenominacion, 'type'=>'text', 'class'=>'w-100', 'required') );
-			echo div_close();
+			echo form_fieldset_close();
 		echo div_close();
 
-        echo br();
-		echo div_open('class="contain d-flex"');
-		    echo div_open('class="form-group contain-group me-3 d-flex w-100"');
-	            echo form_label('Tipo de registro:', $nombreOrazonSocialDeLagenteDeRetención);
-		        echo br();
-                echo form_dropdown($tipoDeRegistro, ['Jurídica','Natural','Gubernamental'], 'large');
-                echo div_close();
-		echo div_close();
-        echo br();
-
-		echo form_submit('makelogin', 'Get me in' , array('class'=>'btn btn-outline-warning w-100'));
-	echo form_close();
 echo div_close();
 echo div_close();
 
