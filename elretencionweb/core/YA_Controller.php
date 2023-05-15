@@ -100,7 +100,7 @@ class YA_Controller extends CI_Controller
 	{
 		$userdata = $this->sessobj;
 		$this->username = NULL;
-		$this->estado = NULL;
+		$this->userstatus = 'INACTIVO';
 		$this->sessionficha = NULL;
 		$this->sessionflag = NULL;
 		if( is_array($userdata) )
@@ -110,13 +110,13 @@ class YA_Controller extends CI_Controller
 				if( array_key_exists($variable, $userdata) )
 				{
 					$this->$variable = $userdata[$variable];
-					
 				}
 			}
+			$this->sessionflag = date('YmdHis');
 		}
 	}
 
-	/* 
+	/**
 	 * la logica de menu esta descrita en docs/desarrollo-gencontroler-y-menu.md
 	 * name: genmenu 
 	 * @description genera un menu de enlaces plano usando `getcontrollers` segun los nombres de controladores del directorio
@@ -148,14 +148,15 @@ class YA_Controller extends CI_Controller
 		if(($modulename == NULL OR $modulename == FALSE) AND $currentinx !== '')
 		{
 			$menuitemactive = '';
-			$menuclasssubdi = '';
+			$menumainattrib = 'class=" btn btn-success btn-sm" role="button"';
+			$menuclasssubdi = 'btn-group  btn-group-sm';
 
-			$menumainstring = '<div class="topnav '.$menuclasssubdi.'">';
-			$menumainstring .= ' '.anchor('../../','Intranet','class="" ');
+			$menumainstring = '<div class="topnav '.$menuclasssubdi.'"  role="group">';
+			$menumainstring .= ' '.anchor('../../','Intranet',$menumainattrib);
 			if( $user_loged == FALSE )
-				$menumainstring .= ' '.anchor('/Indexauth/auth/logauth','Inicio','class="active" ');
+				$menumainstring .= ' '.anchor('/Indexauth/auth/logauth','Inicio',$menumainattrib.' data-toggle="button" ');
 			else
-				$menumainstring .= ' '.anchor('/Indexauth/auth/logout','Logout','class="active" ');
+				$menumainstring .= ' '.anchor('/Indexauth/auth/logout','Logout',$menumainattrib.' data-toggle="button" ');
 
 			$modulename = $arraymodules[0];
 			foreach($arraycontrls as $menuidex=>$menulink)
@@ -174,12 +175,12 @@ class YA_Controller extends CI_Controller
 				if(stripos($menulink,'/')>2)
 				{
 					if(stripos($menuclic,$modulename)>1)
-						$menuitemactive = 'active';
+						$menuitemactive = ' data-toggle="button" ';
 					if( $user_loged != FALSE )
-						$menumainstring .= ' '.anchor($menulink,ucfirst($menuname),'class=" '.$menuitemactive.' " ');
+						$menumainstring .= ' '.anchor($menulink,ucfirst($menuname), $menumainattrib . $menuitemactive);
 				}
 			}
-			$menumainstring .= ' '.anchor('/Index/index','Home','class="" ');
+			$menumainstring .= ' '.anchor('/Index/index','Home',$menumainattrib);
 		}
 		else
 		{
@@ -207,7 +208,7 @@ class YA_Controller extends CI_Controller
 				$menulink = strtolower($menulink);
 
 				if( $user_loged != FALSE )
-					$menumainstring .= ' '.anchor($menulink,$menuname,'class="  '.$menuitemactive.' " ').' ';
+					$menumainstring .= ' '.anchor($menulink,$menuname,'class=" btn btn-outline-success btn-sm" role="button" '.$menuitemactive.' " ').' ';
 			}
 		}
 		$menumainstring .= '</div>';
@@ -215,7 +216,7 @@ class YA_Controller extends CI_Controller
  
 	}
 
-	/* 
+	/** 
 	 * esta logica esta descrita en docs/desarrollo-gencontroler-y-menu.md
 	 * name: getcontrollers obtiene nombre de controladores o nombre de directorios de controladores
 	 * @param string $moduledir nombre del directorio de controllers especifico sino directorios de modulos
