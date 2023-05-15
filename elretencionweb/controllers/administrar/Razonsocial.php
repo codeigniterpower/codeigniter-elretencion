@@ -51,6 +51,13 @@ class Razonsocial extends YA_Controller {
 	public function registrarrazonsocial()
 	{
 		$data = $this->data;
+
+		if($this->userstatus != 'ACTIVO')
+		{
+			redirect('administrar/'.__CLASS__.'/razonsocialporid/editado_restringido');
+			return;
+		}
+
 		$this->render('admin_razonsocial_registrar',$data);
 	}
 
@@ -76,6 +83,12 @@ class Razonsocial extends YA_Controller {
 			return;
 		}
 
+		if($this->userstatus != 'ACTIVO')
+		{
+			redirect('administrar/'.__CLASS__.'/razonsocialporid/editado_restringido');
+			return;
+		}
+
 		$paramfilters['cod_juridico'] = $cod_juridico;
 		log_message('debug', __METHOD__ .' array data : ' . print_r($paramfilters, TRUE) );
 		$this->load->model('Admindbcrudmodel','rsm');
@@ -88,18 +101,10 @@ class Razonsocial extends YA_Controller {
 				redirect('administrar/'.__CLASS__.'/razonsocialporid/editado_error');
 				return;
 			}
-			if($this->userstatus == 'ACTIVO')
+			foreach($rs_list_dbarray_total[0] as $rownum => $rowdata)
 			{
-				foreach($rs_list_dbarray_total[0] as $rownum => $rowdata)
-				{
-					$$rownum = $rowdata;
-					$data['rs_'.$rownum] = $rowdata;
-				}
-			}
-			else
-			{
-				redirect('administrar/'.__CLASS__.'/razonsocialporid/editado_restringido');
-				return;
+				$$rownum = $rowdata;
+				$data['rs_'.$rownum] = $rowdata;
 			}
 		}
 		else
@@ -132,7 +137,7 @@ class Razonsocial extends YA_Controller {
 			return;
 		}
 
-		if($this->userstatus == 'ACTIVO')
+		if($this->userstatus != 'ACTIVO')
 		{
 			redirect('administrar/'.__CLASS__.'/razonsocialporid/borrado_restringido');
 			return;
