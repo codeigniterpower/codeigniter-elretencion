@@ -11,6 +11,11 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 		// loading of own styling and script of project
 		echo link_css('bootstrap.css').PHP_EOL;		
 		echo link_css('eltxtcss.css').PHP_EOL;
+		// loading of datatables for table presentation
+		echo link_js("jquery.dataTables.js");
+		echo link_css("jquery.dataTables.css");
+		// loading of jquery need
+		echo link_js('jquery-3.6.3.js');
 
 		// compatibility of older browsers TODO: implement of the 
 		echo link_js('polyfill.js').PHP_EOL;
