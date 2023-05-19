@@ -39,7 +39,7 @@ class Registrosretenciones extends YA_Controller {
 	{
 
 		$data = $this->data;
-		$this->render('reten_index',$data);
+		$this->render('reten_registro_listados',$data);
 	}
 
 	/**

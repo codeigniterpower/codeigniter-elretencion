@@ -38,7 +38,7 @@ class Razonsocial extends YA_Controller {
 	public function index()
 	{
 		$data = $this->data;
-		$this->render('admin_index',$data);
+		$this->render('admin_index_juridicos',$data);
 	}
 
 	/**
