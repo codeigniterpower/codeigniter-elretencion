@@ -31,7 +31,7 @@ class Indexadministrar extends YA_Controller {
 	{
 
 		$data = $this->data;
-		$this->render('admin_index',$data);
+		$this->render('administrar/admin_index',$data);
 	}
 }
 

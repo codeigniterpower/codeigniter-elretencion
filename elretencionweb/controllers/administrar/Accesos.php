@@ -39,7 +39,7 @@ class Accesos extends YA_Controller {
 	{
 		$data = $this->data;
 		$data['indexview'] = 'accesos';
-		$this->render('admin_index_accesos',$data);
+		$this->render('administrar/admin_index_accesos',$data);
 	}
 
 	/**
@@ -59,7 +59,7 @@ class Accesos extends YA_Controller {
 			return;
 		}
 
-		$this->render('admin_accesos_registrar',$data);
+		$this->render('administrar/admin_accesos_registrar',$data);
 	}
 
 	/**
@@ -113,7 +113,7 @@ class Accesos extends YA_Controller {
 			redirect('administrar/'.__CLASS__.'/accesosporid/editado_error');
 			return;
 		}
-		$this->render('admin_accesos_registrar',$data);
+		$this->render('administrar/admin_accesos_registrar',$data);
 	}
 
 	/**
@@ -204,7 +204,7 @@ class Accesos extends YA_Controller {
 		$data['rs_list_dbarray_total'] = $rs_list_dbarray_total;
 		$data['currenturl'] = $this->currenturl;
 		$data['errormsg'] = $errormsg;
-		$this->render('admin_accesos_listar',$data);
+		$this->render('administrar/admin_accesos_listar',$data);
 	}
 
 	/**

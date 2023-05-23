@@ -38,7 +38,7 @@ class Razonsocial extends YA_Controller {
 	public function index()
 	{
 		$data = $this->data;
-		$this->render('admin_index_juridicos',$data);
+		$this->render('administrar/admin_index_juridicos',$data);
 	}
 
 	/**
@@ -58,7 +58,7 @@ class Razonsocial extends YA_Controller {
 			return;
 		}
 
-		$this->render('admin_razonsocial_registrar',$data);
+		$this->render('administrar/admin_razonsocial_registrar',$data);
 	}
 
 	/**
@@ -112,7 +112,7 @@ class Razonsocial extends YA_Controller {
 			redirect('administrar/'.__CLASS__.'/razonsocialporid/editado_error');
 			return;
 		}
-		$this->render('admin_razonsocial_registrar',$data);
+		$this->render('administrar/admin_razonsocial_registrar',$data);
 	}
 
 	/**
@@ -203,7 +203,7 @@ class Razonsocial extends YA_Controller {
 		$data['rs_list_dbarray_total'] = $rs_list_dbarray_total;
 		$data['currenturl'] = $this->currenturl;
 		$data['errormsg'] = $errormsg;
-		$this->render('admin_razonsocial_listar',$data);
+		$this->render('administrar/admin_razonsocial_listar',$data);
 	}
 
 	/**
