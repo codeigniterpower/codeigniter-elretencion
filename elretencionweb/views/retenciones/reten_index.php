@@ -33,7 +33,7 @@
 			<!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
 			<div class="card-body">
 				<h3 class="card-title"><a href="<?php echo site_url();?>/retenciones/registrosretenciones/retencionlistado">Retenciones!</a></h3>
-				<p class="card-text">Para editar o corregir los registros.</p>
+				<p class="card-text">Para editar, confirmar o corregir.</p>
 			</div>
 			<div class="card-footer">
 				<small class="text-muted">
@@ -44,12 +44,12 @@
 		<div class="card m-4" style="width: 300px;">
 			<!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
 			<div class="card-body">
-				<h3 class="card-title">Reservado</h3>
-				<p class="card-text">Este es un proyecto licenciado en CC-BY-NC-SA.</p>
+				<h3 class="card-title"><a href="<?php echo site_url();?>/retenciones/registrosretenciones/confirmarini">Confirmar</a></h3>
+				<p class="card-text">Confirmar una retencion registrada.</p>
 			</div>
 			<div class="card-footer">
 				<small class="text-muted">
-					<a class="btn btn-default btn-outline-success" href="https://gitlab.com/codeigniterpower/codeigniter-codeigniter-eltxt/tree/main/docs"><i class="icon icon-screen-desktop"></i>Licencia!</a>
+					<a class="btn btn-default btn-outline-success" href="<?php echo site_url();?>/retenciones/registrosretenciones/confirmarini"><i class="icon icon-screen-desktop"></i>Confirmar!</a>
 				</small>
 			</div>
 		</div>

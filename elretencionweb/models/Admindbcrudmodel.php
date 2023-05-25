@@ -53,6 +53,31 @@ class Admindbcrudmodel extends CI_Model
 	}
 
 	/**
+	 * obtiene todas las facturas
+	 *
+	 * @access	public
+	 * @param	string  $curDest XXX[,YYY,ZZZ] optional and can be various
+	 * @param	string  $fecha YYYYMMDD optional
+	 * @param	string  $curBase XXX optional
+	 * @param	array  $paramnames ('columname'=>'value'[,'columname'=>'value',..])
+	 * @return	mixed FALSE on errors
+	 */
+	public function readFActuras($parameters = NULL, $sqllimit = NULL, $sqloffset = NULL, $ordercol = NULL, $sorting = NULL, $countall = NULL)
+	{
+		$table = 'adm_facturas';
+		$tablepk = 'cod_factura';
+		$columns = 'cod_factura, num_factura, num_control, cod_juridico_emisor, cod_juridico_receptor, mon_factura_factura, mon_factura_excento, mon_factura_moneda, sessionflag, sessionficha';
+		$limiters = array();
+		$limiters['sqllimit'] = $sqllimit; // limit
+		$limiters['sqloffset'] = $sqloffset; // offset
+		$limiters['ordercol'] = $ordercol; // colum
+		$limiters['sorting'] = $sorting; // order
+		$arraydata = $this->crudReadTable($table, $parameters, $columns, $tablepk, $limiters);
+		log_message('debug', __METHOD__ .' data from DB received for history');
+		return $arraydata;
+	}
+
+	/**
 	 * obtiene listado de la tabla en crudo
 	 *
 	 * @access	public
