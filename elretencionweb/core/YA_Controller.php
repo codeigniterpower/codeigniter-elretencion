@@ -37,6 +37,8 @@ class YA_Controller extends CI_Controller
 	public $sessionficha = NULL;
 	/** modification time */
 	public $sessionflag = NULL;
+	/** data array for variables send to the view output */
+	public $data = NULL;
 
 	/**
 	 * establece librerias de sesion y permisos asi como modulo si se especifica
