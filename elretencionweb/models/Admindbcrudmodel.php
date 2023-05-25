@@ -43,23 +43,33 @@ class Admindbcrudmodel extends CI_Model
 	 * obtiene todas las razones sociales listadas desde la DB de eladmindb, usando la tabla amd_juridico
 	 *
 	 * @access	public
-	 * @param	array  $filters (0[col1, value], 1[col2, value]), valid cols: check table reference `cur_moneda`
+	 * @param	array  $paramnames ('columname'=>'value'[,'columname'=>'value',..])
+	 * @param	string  $sqllimit cuantos registros devuelve en esta consulta
+	 * @param	string  $sqloffset a partir de cual indice o registro se lista el resultado
+	 * @param	string  $ordercol nombre de la columna que ordena los registros
+	 * @param	string  $sorting ordenacion que usara DESC o ASC
 	 * @return	boolean FALSE on errors
 	 */
-	public function readRazonesSociales($paramfilters = NULL)
+	public function readRazonesSociales($paramfilters = NULL, $sqllimit = NULL, $sqloffset = NULL, $ordercol = NULL, $sorting = NULL, $countall = NULL)
 	{
 		$columns = 'cod_juridico, cod_denominacion, nombre_legal, direccion_comercial, nombre_comercial, tipo_juridico, ficha, sessionficha, sessionflag';
-		return $this->crudReadTable('adm_juridico', $paramfilters, $columns, 'cod_juridico');
+		$limiters = array();
+		$limiters['sqllimit'] = $sqllimit; // limit
+		$limiters['sqloffset'] = $sqloffset; // offset
+		$limiters['ordercol'] = $ordercol; // colum
+		$limiters['sorting'] = $sorting; // order
+		return $this->crudReadTable('adm_juridico', $paramfilters, $columns, 'cod_juridico', $limiters);
 	}
 
 	/**
 	 * obtiene todas las facturas
 	 *
 	 * @access	public
-	 * @param	string  $curDest XXX[,YYY,ZZZ] optional and can be various
-	 * @param	string  $fecha YYYYMMDD optional
-	 * @param	string  $curBase XXX optional
 	 * @param	array  $paramnames ('columname'=>'value'[,'columname'=>'value',..])
+	 * @param	string  $sqllimit cuantos registros devuelve en esta consulta
+	 * @param	string  $sqloffset a partir de cual indice o registro se lista el resultado
+	 * @param	string  $ordercol nombre de la columna que ordena los registros
+	 * @param	string  $sorting ordenacion que usara DESC o ASC
 	 * @return	mixed FALSE on errors
 	 */
 	public function readFActuras($parameters = NULL, $sqllimit = NULL, $sqloffset = NULL, $ordercol = NULL, $sorting = NULL, $countall = NULL)
