@@ -53,42 +53,54 @@ class Admindbcrudmodel extends CI_Model
 	}
 
 	/**
-	 * metodo completo para 
-	 * 
+	 * obtiene listado de la tabla en crudo
+	 *
 	 * @access	public
-	 * @param	string  $tablename
-	 * @param	array  $paramfilters (0[col1, value], 1[col2, value]), valid cols: check table reference `cur_moneda`
-	 * @param	string  $columns [col1, col2, col3] or null or empty
-	 * @return	boolean FALSE on errors
+	 * @param	string  $tabla nombre de la talba a consultar con simple select
+	 * @param	array   $parametros  (0[col1, value], 1[col2, value]), optional pueden ser varios en arreglo
+	 * @param	string  $columnas nombre de las columnas separadas por coma
+	 * @param	string  $tablepk nombre de las clumna con pk
+	 * @param	array   $limiters ( [sqllimit, value], [sqloffset, value] [ordercol, value], [sorting, value], [countall, T/F])
+	 * @return	mixed FALSE on errors
 	 */
-	public function crudReadTable($tablename, $paramfilters = NULL, $columns = NULL, $tablepk = NULL)
+	public function crudReadTable($tablename, $paramfilters = NULL, $columns = NULL, $tablepk = NULL, $limiters = NULL)
 	{
+		// table detection
 		$tablename = trim($tablename);
-		$validtn = $this->form_validation->alpha_dash($tablename);
+		$validtn = preg_match('/^[0-9A-Za-z\s\-_,]+$/', $tablename);
 		if($validtn == FALSE)
 		{
 			log_message('error', __METHOD__ .' invalid table name or DB error for ');
 			return FALSE;
 		}
 		$this->tabledb = $tablename;
-		$validpk = $this->form_validation->alpha_dash($tablepk);
-		if($validpk) 
+		// table pk detection
+		$validpk = preg_match('/^[0-9A-Za-z\s\-_,]+$/', $tablepk);
+		if($validtn == FALSE)
+		{
+			$tablepk = 'cod_'.trim($tablename);
+			$this->tablepk = $tablepk;
+			log_message('debug', __METHOD__ .' invalid table pk name, set to default as '.$tablepk);
+		}
+		else
 		{
 			$tablepk = trim($tablepk);
 			$this->tablepk = $tablepk;
+			log_message('debug', __METHOD__ .' valid table pk name, set to default as '.$tablepk);
 		}
+		// valid table and/or valid data of table detection
 		log_message('debug', __METHOD__ .' parameters  t:'.print_r($tablename,TRUE).' f:' . var_export($paramfilters, TRUE) );
 		$querysql1 = "SELECT * FROM ".$tablename;
 		$sqlrs = $this->dba->query($querysql1);
 		if($sqlrs == FALSE)
 		{
-			log_message('error', __METHOD__ .' invalid data or DB error for '. print_r($tablename,TRUE));
+			log_message('error', __METHOD__ .' invalid data, table invalid or DB error for '. print_r($tablename,TRUE));
 			return FALSE;
 		}
 		$sqldata = $sqlrs->result_array();
-		$columns = trim($columns);
-		$validcn = $this->form_validation->alpha_dash($columns);
-		if( $validcn == FALSE)
+		// table cloumns detection
+		$validcn = preg_match('/^[0-9A-Za-z\s\-_,]+$/', $columns);
+		if( $validcn == FALSE or $columns == NULL)
 		{
 			log_message('debug', __METHOD__ .' fetch data, no columns selection from '. print_r($tablename,TRUE));
 			if(count($sqldata) < 1)
@@ -99,6 +111,59 @@ class Admindbcrudmodel extends CI_Model
 			$coluymnsarray = array_keys($sqldata[0]);
 			$columns = implode(',',$coluymnsarray);
 		}
+		$columns = preg_replace("/\s+/", "", $columns);
+		// amount of results and offset sql detection
+		$queryfiltro = ' ORDER BY '.$tablepk . ' DESC';
+		if(is_array($limiters) )
+		{
+			if( array_key_exists('countall', $limiters) )
+			{
+				$countall = $limiters['countall'];
+				if( is_null($countall) !== TRUE AND empty($countall) !== TRUE ) // no need to spaced, we just detect if present
+				$columnssql = 'count('.$tablepk.') as '.$tablepk;
+			}
+			if( array_key_exists('ordercol', $limiters) )
+			{
+				$ordercol = $limiters['ordercol'];
+				$validvalue = preg_match('/^[a-zA-Z0-9\-_,]{1,40}+$/i', $ordercol);
+				if( $validvalue == FALSE)
+					$ordercol = $tablepk;
+				$queryfiltro .= ' ORDER BY '.$ordercol;
+
+				if( array_key_exists('sorting', $limiters) )
+				{
+					$sorting = $limiters['sorting'];
+					$validvalue = preg_match('/^[a-zA-Z0-9\-_,]{1,40}+$/i', $sorting);
+					if( $validvalue == FALSE)
+						$sorting = ' DESC';
+					$queryfiltro .= ' '.$sorting;
+				}
+				else
+					$queryfiltro .= ' DESC';
+			}
+			else
+				$queryfiltro .= ' ORDER BY '.$tablepk.' DESC';
+			if( array_key_exists('sqllimit', $limiters) )
+			{
+				$howmany = $limiters['sqllimit'];
+				$validvalue = preg_match('/^[0-9]{1,}+$/i', $howmany);
+				if( $validvalue )
+				{
+					if( array_key_exists('sqloffset', $limiters) )
+					{
+						$iniciar = $limiters['sqloffset'];
+						$validvalue = preg_match('/^[0-9]{1,}+$/i', $iniciar);
+						if( $validvalue == FALSE )
+							$iniciar = 0;
+						if($iniciar < $howmany)
+							$howmany = 50;
+					}
+					$queryfiltro .= ' LIMIT '.$howmany;
+					$queryfiltro .= ' OFFSET '.$iniciar;
+				}
+			}
+		}
+
 		if(!is_array($paramfilters) OR $paramfilters == NULL)
 		{
 			log_message('debug', __METHOD__ .' no filters provided for '. print_r($tablename,TRUE));
@@ -121,7 +186,7 @@ class Admindbcrudmodel extends CI_Model
 					log_message('info', __METHOD__ .' detected invalid input or injection attack: '.var_export($$namecolum,TRUE).' for '.$namecolum);
 			}
 		}
-		$querysql1 = "SELECT ".$columns." FROM ".$tablename." WHERE 1=1 ".$sqlfilter ;
+		$querysql1 = "SELECT ".$columns." FROM ".$tablename." WHERE 1=1 ".$sqlfilter.$queryfiltro;
 		$sqlrs = $this->dba->query($querysql1);
 		if($sqlrs == FALSE)
 		{
