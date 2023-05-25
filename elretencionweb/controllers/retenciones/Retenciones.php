@@ -1,15 +1,12 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 /**
- * CrearRetencionIVA eltxt Controller Class para crear un comprobante de IVA
+ * Retenciones Controller Class para revisar las retenciones
  *
  * @package     contabal
  * @author      Lenz McKAY PICCORO @mckaygerhard
  */
-class Registrosretenciones extends YA_Controller {
-
-	/** data array for variables send to the view output */
-	public $data = NULL;
+class Retenciones extends YA_Controller {
 
 	/**
 	 * name: desconocido
@@ -21,10 +18,11 @@ class Registrosretenciones extends YA_Controller {
 		parent::__construct();
 		$this->checksession();
 		$this->load->helper(array('form', 'url','html'));
+		$this->directory = 'retenciones';
 		$data['menu'] = $this->genmenu();
-		$data['menusub'] = $this->genmenu('retenciones');
+		$data['menusub'] = $this->genmenu($this->directory);
+		$data['userurl'] = $this->directory;
 		$this->data = $data;
-
 	}
 
 
@@ -37,9 +35,7 @@ class Registrosretenciones extends YA_Controller {
 	 */
 	public function index()
 	{
-
-		$data = $this->data;
-		$this->render('reten_registro_listados',$data);
+		$this->retencionlistado();
 	}
 
 	/**
@@ -51,9 +47,13 @@ class Registrosretenciones extends YA_Controller {
 	 */
 	public function retencionlistado()
 	{
-
 		$data = $this->data;
-		$this->render('reten_registro_listados',$data);
+		$this->load->model('Retencionesmodel','rtm');
+		$rs_list_dbarray_total = $this->rtm->readRetenciones();
+		$data['totalcount'] = '0';
+		$data['rs_list_dbarray_total'] = $rs_list_dbarray_total;
+		$data['htmlhistorydatatoshow'] = 'No hay registros en la db aun';
+		$this->render($this->directory.'/reten_registro_listados',$data);
 	}
 
 	/**
@@ -65,9 +65,9 @@ class Registrosretenciones extends YA_Controller {
 	 */
 	public function retencionporid($idretencion = NULL)
 	{
-
 		$data = $this->data;
-		$this->render('reten_registro_detalle',$data);
+		
+		$this->render($this->directory.'/reten_registro_detalle',$data);
 	}
 
 }
