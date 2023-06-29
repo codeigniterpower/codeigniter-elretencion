@@ -161,7 +161,7 @@ if (! function_exists('link_js')) {
 		$script = '';
 		$openscrjs = '<script type="text/javascript" ';
 		foreach ($linkssrc as $k => $v) {
-			$script .= $openscrjs . ' src="'.$v.$nocache.'" defer="defer" nonce="" '.$extra.' ></script>';
+			$script .= $openscrjs . ' src="'.$v.$nocache.'" nonce="" '.$extra.' ></script>';
 		}
 
 		return $script;
