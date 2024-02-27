@@ -38,6 +38,7 @@ class Authmodel extends CI_Model
 	public function authtable($username, $password)
 	{
 		log_message('info', __METHOD__ .' begin ');
+		$array_result = FALSE;
 
 		$validu = $this->form_validation->required($username);
 		$validu = $this->form_validation->alpha_dash($username);
@@ -49,7 +50,7 @@ class Authmodel extends CI_Model
 
 		$this->load->database();
 		$query = $this->db->get_where('reten_usuarios', array('username'=>$username, 'userkey'=>$password));
-		$array_result = $query->row_array();
+		if($query) $array_result = $query->row_array();
 
 		log_message('info', __METHOD__ .' ended with '.print_r($array_result,TRUE));
 		return $array_result;
@@ -58,6 +59,7 @@ class Authmodel extends CI_Model
 	public function authimap($username, $password)
 	{
 		log_message('info', __METHOD__ .' begin ');
+		$valid = FALSE;
 
 		$validu = $this->form_validation->required($username);
 		$validu = $this->form_validation->alpha_dash($username);
