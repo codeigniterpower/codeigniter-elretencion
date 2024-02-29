@@ -60,7 +60,7 @@ class Indexauth extends YA_Controller {
 
 		if ( $action == 'login' )
 		{
-			$this->load->model('authmodel');
+			$this->load->model('Authmodel', 'authmodel');
 			$im_access = $this->authmodel->authimap($username, $userclave);
 			$rs_access = $this->authmodel->authtable($username, $userclave);
 			if($im_access == FALSE)
