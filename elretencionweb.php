@@ -102,7 +102,7 @@ switch (ENVIRONMENT)
  * Set the path if it is not in the same directory as this file.
  */
 
-    if (is_file('./ENV_CI3'))	$system_path = 'vendor/codeigniter3/system';
+    if (is_file('./ENV_CI3'))	$system_path = 'vendor/codeigniter3/appsys';
     if (is_file('./ENV_CI2'))	$system_path = 'vendor/codeigniter2/appsys';
 
 /*
